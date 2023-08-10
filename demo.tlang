@@ -1,4 +1,12 @@
 Anything that doesn't get recognised as a special character will be classed as a comment
 
-printing stuff
+printing stuff, it's explicit that you type the print in the start of the line, and 
 p(Hello world)
+$var_name1 = 5
+$var_name2 = 4
+p($var_name1 + $var_name2)
+
+$var_name = John Doe = WeirdGamerTag
+$bool_name = True
+
+p($var_name)
