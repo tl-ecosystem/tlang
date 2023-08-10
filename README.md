@@ -3,11 +3,11 @@ A pseudo-programming interpreted language created using Python. A fun little pro
 
 To run a script written in tleng you need to type in the terminal
 
-    --> python tleng_inter.py name_of_file.tlang
+    --> python tlang1.py name_of_file.tlang
     
 You can also put -log in the end to get a full traceback
 
-    --> python tleng_inter.py name_of_file.tlang -log
+    --> python tlang1.py name_of_file.tlang -log
     
 --version : to get the version of the interpreter
 
