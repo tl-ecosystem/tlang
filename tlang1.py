@@ -161,7 +161,7 @@ class Interpreter(Variables, Functions):
                   "             2. Float\n"+
                   "             3. String\n"+
                   "             4. Bool\n"+
-                  "There should always be \n"+
+                  "There should always be one line free in the end of the progam\n"+
                   "Type --help to learn more\n")
             self.ran = True # used if the interpreter completed what it was told to do
     
@@ -213,5 +213,6 @@ if __name__ == '__main__':
 # if statement
 # while/for loop
 # built in function length, random, type
+# add logging
 
 # live interpreter []
