@@ -15,8 +15,6 @@ variable_declaration_chars = ['$', '=']
 special_caracters = ('p','n','w','i','$')
 
 
-
-
 def find_multiple(line, charset:list|str) -> dict: #TODO make this and then update the printing
     pos_dict = {}
     pos = [] 
@@ -196,7 +194,6 @@ class Interpreter(Variables, Functions):
             if line.startswith('$'): # variable declaration
                 self.variable_asssignment(line, self.LOGGING)
                 continue
-
 
 
 if __name__ == '__main__':
