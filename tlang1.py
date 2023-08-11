@@ -4,39 +4,41 @@ VER = 'v0.2dev'
 
 math_chars = ['+', '-', '/', '*']
 logical_operations = ['>', '<', '!=', '==']
-escape_chars = [' ', ')'] + math_chars + logical_operations # TODO maybe delete later
-printing_chars = ['(', ')']
-input_chars = ['(', ')']
-return_chars = ['(', ')']
-if_chars = ['(', ')']
-while_chars = ['(', ')']
+escape_chars = [' '] + math_chars + logical_operations + [')']
 variable_declaration_chars = ['$', '=']
 
 special_caracters = ('p','n','w','i','$')
 
 
-def find_multiple(line, charset:list|str) -> dict: #TODO make this and then update the printing
+def find_multiple(line: str, charset: list | str) -> dict: #TODO make this and then update the printing
+    """
+    Find multiple positions of chars from a charset in a string and return a dictionary that contains it
+    """
     pos_dict = {}
     pos = [] 
     for char in charset:
         for i in range(len(line)): #searching in the line for the char
-            if line(i) == char:
+            if line[i] == char:
                 pos += [i]#storing position of char
-        pos_dict += {char : pos}
+        pos_dict.update({char : pos}) 
         pos = [] #reseting pos of chars
     return(pos_dict)
 
-def print_method(line:str, vars):
-    temp_var_list = []
-    temp_line = list(line)
-    if line.startswith('p(') and line.endswith(')\n'):
-        for i in range(len(line[2:len(line)-2])):
-            if line[i] == '$': #for variable handling
-                
-                pass
-        print(line[2:len(line)-2])
+def find_once_multiple(line: str, charset: list | str) -> tuple:
+    """
+    find once from a charset and return the position of the char that was found as a tuple
+    """
+    for char in charset:
+        if line.find(char) != -1:
+            return (line.find(char), char)
+
+    return (-1,'') #if there is no finding then return 
+
 
 def find_loop(object:str, find) -> int:
+    '''
+    how many times it has found a char in a string
+    '''
     num_of_finds = 0
     start = 0
     while object.find(find,start) != -1: 
@@ -45,8 +47,23 @@ def find_loop(object:str, find) -> int:
         
     return num_of_finds
 
+def find_startwith_multiple(line: str, words: dict | list | str) -> str:
+    '''
+    checks from a wordset if the start of the string matches with the word from the wordset
+    '''
+    temp_words = words
+
+    if type(words) is dict: # making words into a list for the for loop
+        temp_words = list(words.keys())
+    
+    for word in temp_words:
+        if line.startswith(word):
+            return word
+    return line[0:find_once_multiple(line,escape_chars)[0]].replace(' ','')
+    
 def logical_statement():
     pass
+
 
 def bool_init(object):
     object = object.replace(' ','')
@@ -56,6 +73,7 @@ def bool_init(object):
         return False
     else:
         raise Exception(f"{object} is not a bool")
+
 
 class InstructionSet():
     def __init__(self):
@@ -109,7 +127,7 @@ class Variables():
             if LOGGING:
                 print(self.variables)
         except Exception as error:
-            print(f'Problem with the naming of the variable: {type(error).__name__} \n{error}')
+            print(f'Problem with the naming of the variable: {type(error).__name__} \n{error}, \nReport to developer.') #TODO add color
             sys.exit()
 
     def variable_handler(self): 
@@ -119,7 +137,7 @@ class Variables():
         try:
             return self.variables[name]
         except:
-            print(f"The variable {name} hasn't been assigned.")
+            raise Exception(f"The variable {name} hasn't been assigned.")
 
 class Interpreter(Variables, Functions):
     def __init__(self):
@@ -189,12 +207,24 @@ class Interpreter(Variables, Functions):
                 line = line.replace(' ','') #remove spaces
 
             if line.startswith('p('): # print
-                print_method(line, self.variables)
+                self.print_method(line, self.variables)
                 continue
             if line.startswith('$'): # variable declaration
                 self.variable_asssignment(line, self.LOGGING)
                 continue
+    
+    #built in functions of tlang pseudo-programming language
 
+    def print_method(self, line:str, vars): #rewrite this function to get the string after p(
+        if line.startswith('p(') and line.endswith(')\n'):
+            for i in range(len(line[2: len(line) - 2])):
+                if line[i] == '$': 
+                    temp_var_name = find_startwith_multiple(line[i+1:],self.variables)
+                    print(self.return_variable_value(temp_var_name), end='') 
+                else:
+                    print(line[i+2], end='')
+            print('')
+            # print(line[2:len(line)-2])
 
 if __name__ == '__main__':
     run = Interpreter()
@@ -207,7 +237,7 @@ if __name__ == '__main__':
 #   tleng_inter.py --version [D]
 #   tleng_inter.py --docs [/]
 # printing TODO change and add support to math, and separationg using , 
-# varibles TODO change string to be only gathered in ""
+# varibles TODO change string to be only gathered in "", fix bug with just writing $var == {'var' : '$var'}
 # comments *
 # functions (Local variables, return) later add support for kargs for functions
 # if statement
