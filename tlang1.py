@@ -133,11 +133,13 @@ class Variables():
     def variable_handler(self): 
         pass
 
+
     def return_variable_value(self, name:str):
         try:
             return self.variables[name]
         except:
             raise Exception(f"The variable {name} hasn't been assigned.")
+
 
 class Interpreter(Variables, Functions):
     def __init__(self):
