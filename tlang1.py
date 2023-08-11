@@ -185,6 +185,7 @@ class Interpreter(Variables, Functions):
                   "Type --help to learn more\n")
             self.ran = True # used if the interpreter completed what it was told to do
     
+
     def script_execution_handler(self):
         if self.ran != True:
             with open(self.argv[1], 'r') as f:
@@ -227,6 +228,7 @@ class Interpreter(Variables, Functions):
                     print(line[i+2], end='')
             print('')
             # print(line[2:len(line)-2])
+
 
 if __name__ == '__main__':
     run = Interpreter()
