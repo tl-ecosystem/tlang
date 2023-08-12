@@ -1,13 +1,13 @@
 import sys
 
-VER = 'v0.2dev'
+VER = 'v0.2dev.03'
 
 math_chars = ['+', '-', '/', '*']
 logical_operations = ['>', '<', '!=', '==']
 escape_chars = [' '] + math_chars + logical_operations + [')']
 variable_declaration_chars = ['$', '=']
 
-special_caracters = ('p','n','w','i','$')
+special_caracters = ('p(','n(','w(','i(','$')
 
 
 def find_multiple(line: str, charset: list | str) -> dict: #TODO make this and then update the printing
@@ -65,7 +65,7 @@ def logical_statement():
     pass
 
 
-def bool_init(object):
+def bool_init(object: str):
     object = object.replace(' ','')
     if object == 'True':
         return True
@@ -147,24 +147,24 @@ class Interpreter(Variables, Functions):
         Functions.__init__(self)
         self.argv = sys.argv
         self.ran = False # used if the interpreter completed what it was told to do
-        self.LOGGING = False #not as supposed to work, but near enough for now, also not exactly a constant
+        self.LOGGING = False # not as supposed to work, but near enough for now, also not exactly a constant
 
-    def argv_handler(self):
+    def argv_handler(self): # for color in text: \033[30m .test. \033[0m ([0m normal, [30m gray, [31m red, [32m green, [33m yellow, [34m blue)
         if self.argv[1] == '--help':
-            print("\nHELP with --help\n" +
-                  "    To run a script written in tleng you need to type in the terminal\n"+
-                  "        --> python tleng_inter.py name_of_file.tleng\n\n"+
-                  "    You can also put -log in the end to get a full traceback \n" +
-                  "        --> python tleng_inter.py name_of_file.tleng -log\n\n"+
-                  "    --version : to get the version of the interpreter\n"+
-                  "    --docs : to get the full documentation of the pseudo-programming language\n"+
-                  "    --help : to get the this page\n")
+            print("\nHELP with \033[34m--help\033[0m" + "\n" +
+                  "    To run a script written in tlang you need to type in the terminal\n"+
+                  "        --> \033[32mpython tlang1.py name_of_file.tlang\033[0m" + "\n\n"+ # python tleng_inter.py name_of_file.tleng
+                  "    You can also put \033[34m-log\033[0m in the end to get a full traceback" + "\n" +
+                  "        --> \033[32mpython tlang1.py name_of_file.tlang -log\033[0m" + "\n\n"+ # python tleng_inter.py name_of_file.tleng -log
+                  "    \033[34m--version\033[0m : to get the version of the interpreter" + "\n"+
+                  "    \033[34m--docs\033[0m : to get the full documentation of the pseudo-programming language\n"+
+                  "    \033[34m--help\033[0m : to get this page\n")
             self.ran = True # used if the interpreter completed what it was told to do
 
         elif self.argv[1] == '--version':
-            print("\nVERSION with --version\n"+
-                  f"Current version is: {VER}\n\n"+
-                  "Type --help to learn more\n")
+            print("VERSION with \033[34m--version\033[0m\n\n"+
+                  f"Current version is: \033[32m{VER}\033[0m\n\n"+
+                  "Type \033[34m--help\033[0m to learn more\n")
             self.ran = True # used if the interpreter completed what it was told to do
 
         elif self.argv[1] == '--docs': #TODO add the documentation here (p done)
@@ -245,9 +245,6 @@ if __name__ == '__main__':
 
 
 # run files from the terminal, e.x. tleng_inter.py hellow.tleng
-#   add a --help, --version, --docs and a -log in the end of 'tleng_inter.py hellow.tleng -log'
-#   tleng_inter.py --help [D]
-#   tleng_inter.py --version [D]
 #   tleng_inter.py --docs [/]
 # printing TODO change and add support to math, and separationg using , 
 # varibles TODO change string to be only gathered in "", fix bug with just writing $var == {'var' : '$var'}
@@ -259,3 +256,11 @@ if __name__ == '__main__':
 # add logging
 
 # live interpreter []
+
+"""
+PUSH COMMITS WHEN:
+    A FIX TO A PROBLEM HAS BEEN MADE OR 
+    WHEN A GOAL HAS BEEN ACHIEAVED
+MERGE TO MAIN WHEN:
+    A WHOLE GOAL HAS BEEN ACHIEVED
+"""
