@@ -5,7 +5,7 @@ To run a script written in tleng you need to type in the terminal
 
     --> python tlang1.py name_of_file.tlang
     
-You can also put -log in the end to get a full traceback
+You can also put -log in the end to get a full traceback: WARNING -log is currently printing OLNY every assigned variable when it's assigned
 
     --> python tlang1.py name_of_file.tlang -log
     
@@ -15,12 +15,22 @@ You can also put -log in the end to get a full traceback
 
 --help : to get the this page
 
-WARNING: -log is not currently supported
 
 ## DOCUMENTATION
 
 Anything that isn't a scpecial keychar/keyword is considered a comment
 
-p() is for printing anything put inside will be printed
+`p()` is for printing anything put inside will be printed
 
     p(Hello World)
+
+You can create variables using the `$` and name them whatever you want, the type of the variable will be assigned automativally
+
+    $var_name = Hello World
+    
+There are four types of variables that the Language supports.
+
+- Integer
+- Float
+- String
+- Bool
