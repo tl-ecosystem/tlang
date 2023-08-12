@@ -209,8 +209,8 @@ class Interpreter(Variables, Functions):
             if line.startswith('p(') != True and line.startswith('$') != True: # check if it is printing stuff
                 line = line.replace(' ','') #remove spaces
 
-            if line.startswith('p('): # print
-                self.print_method(line, self.variables)
+            if line.startswith('p('): # print, also handles variable detection
+                self.print_func(line, self.variables) #line.replace('p(','') then also change the print_func
                 continue
             if line.startswith('$'): # variable declaration
                 self.variable_asssignment(line, self.LOGGING)
@@ -218,15 +218,24 @@ class Interpreter(Variables, Functions):
     
     #built in functions of tlang pseudo-programming language
 
-    def print_method(self, line:str, vars): #rewrite this function to get the string after p(
+    def print_func(self, line:str, vars): #TODO rewrite this function to get the string after p( #TODO check if it easier to just search for every declared variable in the line 
+        temp_dct = {}
+        temp_str = '' 
+        temp_var_list = []
         if line.startswith('p(') and line.endswith(')\n'):
-            for i in range(len(line[2: len(line) - 2])):
+            # print(line[:len(line)-2])
+            for i in range(2, len(line[2: len(line) - 2])):
                 if line[i] == '$': 
                     temp_var_name = find_startwith_multiple(line[i+1:],self.variables)
-                    print(self.return_variable_value(temp_var_name), end='') 
-                else:
-                    print(line[i+2], end='')
-            print('')
+                    temp_var_list += [temp_var_name]
+                    temp_dct.update({temp_var_name:self.return_variable_value(temp_var_name)}) 
+            
+            # print(temp_var_list, temp_dct)
+            temp_str = line[2:len(line)-2]
+            for i in temp_var_list:
+                temp_str = temp_str.replace('$'+i,str(temp_dct[i]))
+
+            print(temp_str)
             # print(line[2:len(line)-2])
 
 
