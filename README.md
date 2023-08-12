@@ -1,11 +1,11 @@
 # TLangPy
 A pseudo-programming interpreted language created using Python. A fun little project.
 
-To run a script written in tleng you need to type in the terminal
+To run a script written in tleng you need to type in the terminal:
 
     --> python tlang1.py name_of_file.tlang
     
-You can also put -log in the end to get a full traceback
+You can also put -log in the end to get a full traceback: WARNING: -log is not currently supported
 
     --> python tlang1.py name_of_file.tlang -log
     
@@ -14,8 +14,6 @@ You can also put -log in the end to get a full traceback
 --docs : to get the full documentation of the pseudo-programming language
 
 --help : to get the this page
-
-WARNING: -log is not currently supported
 
 ## DOCUMENTATION
 
