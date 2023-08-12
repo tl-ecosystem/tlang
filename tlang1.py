@@ -1,6 +1,6 @@
 import sys
 
-VER = 'v0.2dev'
+VER = 'v0.2dev.02'
 
 math_chars = ['+', '-', '/', '*']
 logical_operations = ['>', '<', '!=', '==']
