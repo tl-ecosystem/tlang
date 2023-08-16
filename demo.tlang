@@ -5,8 +5,10 @@ p(Hello world)
 $var_name1 = 5
 $var_name2 = 4
 p($var_name1 + $var_name2)
+$var_name2 = 6
+p($var_name2)
 
-$var_name =John Doe = WeirdGamerTag
+$var_name = "John Doe = WeirdGamerTag"
 $bool_name = True
 
-p($var_name)
+p($var_name, $bool_name, sdfsdghgf)

@@ -2,9 +2,9 @@ import sys
 
 VER = 'v0.2dev.03'
 
-math_chars = ['+', '-', '/', '*']
+math_chars = ['+', '-', '/', '*', '**',['(',')']]
 logical_operations = ['>', '<', '!=', '==']
-escape_chars = [' '] + math_chars + logical_operations + [')']
+escape_chars = [' '] + math_chars[:len(math_chars)-1] + logical_operations + [')']
 variable_declaration_chars = ['$', '=']
 
 special_caracters = ('p(','n(','w(','i(','$')
@@ -24,13 +24,13 @@ def find_multiple(line: str, charset: list | str) -> dict: #TODO make this and t
         pos = [] #reseting pos of chars
     return(pos_dict)
 
-def find_once_multiple(line: str, charset: list | str) -> tuple:
+def find_once_multiple(line: str, charset: list | str, start) -> tuple:
     """
     find once from a charset and return the position of the char that was found as a tuple
     """
     for char in charset:
         if line.find(char) != -1:
-            return (line.find(char), char)
+            return (line.find(char, start), char)
 
     return (-1,'') #if there is no finding then return 
 
@@ -43,7 +43,7 @@ def find_loop(object:str, find) -> int:
     start = 0
     while object.find(find,start) != -1: 
         num_of_finds += 1
-        start = object.find(find,start)
+        start = object.find(find,start+1)
         
     return num_of_finds
 
@@ -105,21 +105,26 @@ class Variables():
 
     def variable_asssignment(self, line:str, LOGGING:bool=False): #TODO
         var_value = None
-        try:
-            temp = line[line.find('=')+1: len(line)-1]
-        except:
-            print(f'Caught Syntax Error in line: {line}')
-
-        try:
-            var_value = int(temp)
-        except:
+        if line.find('=') == -1:
+            raise Exception(f'Caught Syntax Error in line: {line}')
+        
+        temp = line[line.find('=')+1: len(line)-1]
+        
+        temp_pos = line.find('"')
+        if temp_pos != -1:
+            if line.find('"', temp_pos+1) != -1:
+                var_value = line[temp_pos+1: line.find('"', temp_pos+1)]
+        else:
             try:
-                var_value = float(temp)
+                var_value = int(temp)
             except:
                 try:
-                    var_value = bool_init(temp)
+                    var_value = float(temp)
                 except:
-                    var_value = str(temp)
+                    try:
+                        var_value = bool_init(temp)
+                    except:
+                        raise Exception(f"The variable: '{line[1:line.find('=')].replace(' ','')}' could not be assigned")
                 
 
         try:
@@ -130,7 +135,11 @@ class Variables():
             print(f'Problem with the naming of the variable: {type(error).__name__} \n{error}, \nReport to developer.') #TODO add color
             sys.exit()
 
-    def variable_handler(self): 
+    def variable_detection_in_str(self, line)->str: 
+        '''
+        it returns the new string that has the values from the variables
+        '''
+
         pass
 
 
@@ -210,33 +219,69 @@ class Interpreter(Variables, Functions):
                 line = line.replace(' ','') #remove spaces
 
             if line.startswith('p('): # print, also handles variable detection
-                self.print_func(line, self.variables) #line.replace('p(','') then also change the print_func
+                self.print_func(line.replace('p(',''), self.variables) #line.replace('p(','') then also change the print_func
                 continue
             if line.startswith('$'): # variable declaration
                 self.variable_asssignment(line, self.LOGGING)
                 continue
     
+    def formating_line(self) -> dict:
+        '''
+        Formats the line for the easier readibility of other built-in functions:
+        Then it gives metadata of where some stuff where, the variables 
+        '''
+        # Will take a line and, 
+        #   clear every space it has, if there is a string it will ignore the spaces inside of it
+        #   check for variables outside of a string, 
+        pass
+
     #built in functions of tlang pseudo-programming language
 
-    def print_func(self, line:str, vars): #TODO rewrite this function to get the string after p( #TODO check if it easier to just search for every declared variable in the line 
+    def print_func(self, line:str, vars): #TODO check if it easier to just search for every declared variable in the line 
         temp_dct = {}
         temp_str = '' 
         temp_var_list = []
-        if line.startswith('p(') and line.endswith(')\n'):
-            # print(line[:len(line)-2])
-            for i in range(2, len(line[2: len(line) - 2])):
-                if line[i] == '$': 
-                    temp_var_name = find_startwith_multiple(line[i+1:],self.variables)
-                    temp_var_list += [temp_var_name]
-                    temp_dct.update({temp_var_name:self.return_variable_value(temp_var_name)}) 
+
+        separated_line = []
+
+        # if line.startswith('p(') and line.endswith(')\n'):
+        # print(line[:len(line)-2])
+        # for i in range(2, len(line[2: len(line) - 2])):
+            # if line[i] == '$': 
+            #     temp_var_name = find_startwith_multiple(line[i+1:],self.variables)
+            #     temp_var_list += [temp_var_name]
+            #     temp_dct.update({temp_var_name:self.return_variable_value(temp_var_name)}) 
+
+        start = 0
+        last_start = len(line)-1
+        while line.find(',',start) != -1: # formatting for the line
+            last_start = start
+            start = line.find(',',start) if line.find(',',start) != -1 else find_once_multiple(line, escape_chars, start)
+            if line.find('"') != -1:
+                temp = line.find('"')
+                separated_line += [line[last_start+1:temp-1].replace(' ','') + line[temp+1:line.find('"', temp+1)] + line[line.find('"', temp+1):start-1].replace(' ','')]
+                                # First part of the sepration line ,___" then the inside of the string "_______" and then the outside of the string again "___, until the next ","
+            else: 
+                separated_line += [line[last_start+1:start-1].replace(' ','')]
+
+
+        for sep in separated_line:
+        #     for i in range(len(sep)):
+        #         if sep[i] == '$': 
+        #             temp_var_name = find_startwith_multiple(line[i+1:],self.variables)
+        #             temp_var_list += [temp_var_name]
+        #             temp_dct.update({temp_var_name:self.return_variable_value(temp_var_name)}) 
             
-            # print(temp_var_list, temp_dct)
-            temp_str = line[2:len(line)-2]
+            
+        # print(temp_var_list, temp_dct)
+            temp_str = sep
+            temp_var_list = list(self.variables.keys())
+            temp_dct = self.variables
             for i in temp_var_list:
                 temp_str = temp_str.replace('$'+i,str(temp_dct[i]))
 
-            print(temp_str)
-            # print(line[2:len(line)-2])
+        print(temp_str)
+        # print(line[2:len(line)-2])
 
 
 if __name__ == '__main__':
@@ -259,8 +304,8 @@ if __name__ == '__main__':
 
 """
 PUSH COMMITS WHEN:
-    A FIX TO A PROBLEM HAS BEEN MADE OR 
-    WHEN A GOAL HAS BEEN ACHIEAVED
+    A SOLVE TO A PROBLEM HAS BEEN MADE OR 
+    WHEN A GOAL HAS BEEN ACHIEVED
 MERGE TO MAIN WHEN:
     A WHOLE GOAL HAS BEEN ACHIEVED
 """
