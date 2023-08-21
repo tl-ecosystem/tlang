@@ -1,14 +1,30 @@
 Anything that doesn't get recognised as a special character will be classed as a comment
 
-printing stuff, it's explicit that you type the print in the start of the line, and 
-p(Hello world)
-$var_name1 = 5
-$var_name2 = 4
-p($var_name1 + $var_name2)
-$var_name2 = 6
-p($var_name2)
 
-$var_name = "John Doe = WeirdGamerTag"
-$bool_name = True
+@s func
 
-p($var_name, $bool_name, sdfsdghgf)
+$var_local = 5
+$var_local = 6
+
+r($var_local + $var_local - $1)
+(always returns in string, if numeric will return numeric)
+@e func
+
+
+(start)
+@s main
+
+$string_var = "Hello world"
+
+$int_var = 5
+$float_var = 5.5
+
+$bool_var = False
+
+p($string_var,  $bool_var)
+p("$int_var + $float_var =", $int_var + $float_var)
+p($1)
+
+p(@func[$int_var])
+@e main
+(end)
