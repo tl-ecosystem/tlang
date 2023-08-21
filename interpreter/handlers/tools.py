@@ -5,7 +5,7 @@ logical_operations = ['>', '<', '!=', '==']
 escape_chars = [' '] + math_chars[:len(math_chars)-1] + logical_operations + [')']
 variable_declaration_chars = ['$', '=']
 
-special_caracters = ('p(','n(','w(','i(','$', '@s', 'r()')
+special_caracters = ('p(','n(','w(','i(','$', '@', 'r(')
 
 def formating_line( line: str) -> str:
     '''
@@ -88,7 +88,7 @@ def logical_statement():
     pass
 
 
-def bool_init(object: str):
+def bool_init(object: str) -> bool:
     object = object.replace(' ','')
     if object == 'True':
         return True
@@ -96,3 +96,11 @@ def bool_init(object: str):
         return False
     else:
         raise Exception(f"{object} is not a bool")
+    
+
+def spacial_split(line: str) -> list[str]:
+    return line.split()
+
+def append_to_file(line) -> None:
+    with open('script_runtime.log', 'a') as logger:
+        logger.write(line)

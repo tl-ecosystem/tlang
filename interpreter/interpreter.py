@@ -1,16 +1,17 @@
 from interpreter.handlers.variables import *
 from interpreter.handlers.functions import *
 
-VER = 'v0.2dev.03'
+VER = 'v0.2dev.05'
 
 class Interpreter(Variables, Functions):
     def __init__(self):
         Variables.__init__(self)
         Functions.__init__(self)
         self.flag = sys.argv
-        self.app_flags = self.flag[2:]
+        self.script_flags = self.flag[2:]
         self.ran = False # used if the interpreter completed what it was told to do
         self.LOGGING = False # not as supposed to work, but near enough for now, also not exactly a constant
+        self.line = 0
 
     def argv_handler(self): # for color in text: \033[30m .test. \033[0m ([0m normal, [30m gray, [31m red, [32m green, [33m yellow, [34m blue)
         if self.flag[1] == '--help':
@@ -55,8 +56,11 @@ class Interpreter(Variables, Functions):
                 self.tscript = f.readlines()
             if len(self.flag) > 2:
                 if self.flag[2] == '-log':
+                    self.script_flags = self.flag[3:]
                     self.LOGGING = True
-            self.function_logging(self.tscript)
+                    with open('script_runtime.log', 'w') as logger:
+                        logger.write(f"File {self.flag[1]} Executed currently running:\n")
+            self.function_logging(self.tscript, self.LOGGING)
             self.main_execution()
 
 
@@ -69,11 +73,17 @@ class Interpreter(Variables, Functions):
 
 
     def main_execution(self):
-        for line in self.tscript: # TODO as a while acting as a for loop
+        # get the pos of the main function and then run
+        # if there is no pos of the main function then raise an exception
+        pos = self.function_lookup('main', self.LOGGING)
+        if self.LOGGING:
+            append_to_file(f'Proccess: Main Execution\n')
 
+        for line in self.tscript[pos[0]:pos[1]]: # TODO as a while acting as a for loop
             line: str = formating_line(line) # str added for better pylint highlighting 
-            if line.startswith('@'): #Function declaration
+            if line.startswith('@'): #Function call
                 pass
+                # self.function_execution(self.function_lookup())
             elif line.startswith('p('): # print, also handles variable detection
                 self.print_func(line.replace('p(',''), self.variables) #line.replace('p(','') then also change the print_func
             elif line.startswith('$'): # variable declaration or re-declaration
@@ -81,12 +91,14 @@ class Interpreter(Variables, Functions):
             elif line.startswith('w('): #TODO
                 pass
             # Comments are lines that the interpreter doesn't find any key words
+        if self.LOGGING:
+            append_to_file(f'Proccess Succesfully Completed\n')
 
-    def function_execution(self):
-        for line in self.tscript: # TODO as a while acting as a for loop
+    def function_execution(self, pos: tuple):
+        for line in self.tscript[pos[0]:pos[1]]: # TODO as a while acting as a for loop
 
             line: str = formating_line(line) # str added for better pylint highlighting 
-            if line.startswith('@'): #Function declaration
+            if line.startswith('@'): #Function call
                 pass
             elif line.startswith('p('): # print, also handles variable detection
                 self.print_func(line.replace('p(',''), self.variables) #line.replace('p(','') then also change the print_func
@@ -94,12 +106,38 @@ class Interpreter(Variables, Functions):
                 self.variable_asssignment(line, self.LOGGING)
             elif line.startswith('w('): #TODO
                 pass
-    
+            elif line.startswith('r('): #TODO
+                return 'smt?'     
     
     def math_operations(self, operat) -> str:
         return str(eval(operat))
+    
+    def comma_splitter(self, line: str) -> str: # I HONESTLY DON'T KNOW HOW THIS WORKS RELIABLY
+        '''
+        Formats the line for the easier readibility of other built-in functions (it basically clears any whitespace)
+        '''
+        n_line = []
+        index = 0
+        temp_str = ''
+        in_quote = False
+        quote_num = 0
+        while index != len(line): # a controlable for loop as a while loop 
+            if line[index] == '"': # char = line[index]
+                quote_num += 1
+            if quote_num % 2 == 0:
+                in_quote = False
+            else:
+                in_quote = True
+            if line[index] == ',' and in_quote == False:
+                n_line += [temp_str]
+                temp_str = ''
+                index += 1
+            else:
+                temp_str += line[index]
+                index += 1
+        return n_line
 
-    def formater(self, line) -> str:
+    def formater(self, line) -> list:
         '''
         Check the strings for any use of a variable and replace it 
             (it is not allowed to make any mathematical operation inside a string) 
@@ -111,51 +149,28 @@ class Interpreter(Variables, Functions):
 
         new_line = ''
 
-        return new_line
-    #built in functions of tlang pseudo-programming language
+        new_line = self.comma_splitter(line)
 
-    def print_func(self, line:str, vars): #TODO check if it easier to just search for every declared variable in the line 
-        temp_dct = {}
-        temp_str = '' 
-        temp_var_list = []
-
-        separated_line = []
-
-        # if line.startswith('p(') and line.endswith(')\n'):
-        # print(line[:len(line)-2])
-        # for i in range(2, len(line[2: len(line) - 2])):
-            # if line[i] == '$': 
-            #     temp_var_name = find_startwith_multiple(line[i+1:],self.variables)
-            #     temp_var_list += [temp_var_name]
-            #     temp_dct.update({temp_var_name:self.return_variable_value(temp_var_name)}) 
-
-        start = 0
-        last_start = len(line)-1
-        while line.find(',',start) != -1: # formatting for the line
-            last_start = start
-            start = line.find(',',start) if line.find(',',start) != -1 else find_once_multiple(line, escape_chars, start)
-            if line.find('"') != -1:
-                temp = line.find('"')
-                separated_line += [line[last_start+1:temp-1].replace(' ','') + line[temp+1:line.find('"', temp+1)] + line[line.find('"', temp+1):start-1].replace(' ','')]
-                                # First part of the sepration line ,___" then the inside of the string "_______" and then the outside of the string again "___, until the next ","
-            else: 
-                separated_line += [line[last_start+1:start-1].replace(' ','')]
-
-
-        for sep in separated_line:
-        #     for i in range(len(sep)):
-        #         if sep[i] == '$': 
-        #             temp_var_name = find_startwith_multiple(line[i+1:],self.variables)
-        #             temp_var_list += [temp_var_name]
-        #             temp_dct.update({temp_var_name:self.return_variable_value(temp_var_name)}) 
-            
-            
-        # print(temp_var_list, temp_dct)
-            temp_str = sep
+        for sep in new_line:
             temp_var_list = list(self.variables.keys())
             temp_dct = self.variables
             for i in temp_var_list:
                 temp_str = temp_str.replace('$'+i,str(temp_dct[i]))
 
-        print(temp_str)
+
+        return new_line
+    #built in functions of tlang pseudo-programming language
+
+    def print_func(self, line:str, vars): #TODO check if it easier to just search for every declared variable in the line 
+        if self.LOGGING:
+            append_to_file('Process: Printing\n')
+        
+        temp_line = self.formater(line)
+
+        for seps in temp_line:
+            print(seps)
+
+        if self.LOGGING:
+            append_to_file('Process Succesfully Completed\n')
+
         # print(line[2:len(line)-2])

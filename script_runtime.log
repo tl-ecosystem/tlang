@@ -1,0 +1,65 @@
+File demo.tlang Executed currently running:
+Proccess: Finding functions
+self.functions = {}
+self.functions = {}
+self.functions = {}
+self.functions = {'func': (3, 0)}
+self.functions = {'func': (3, 0)}
+self.functions = {'func': (3, 0)}
+self.functions = {'func': (3, 0)}
+self.functions = {'func': (3, 0)}
+self.functions = {'func': (3, 0)}
+self.functions = {'func': (3, 0)}
+self.functions = {'func': (3, 10)}
+self.functions = {'func': (3, 10)}
+self.functions = {'func': (3, 10)}
+self.functions = {'func': (3, 10)}
+self.functions = {'func': (3, 10), 'main': (14, 0)}
+self.functions = {'func': (3, 10), 'main': (14, 0)}
+self.functions = {'func': (3, 10), 'main': (14, 0)}
+self.functions = {'func': (3, 10), 'main': (14, 0)}
+self.functions = {'func': (3, 10), 'main': (14, 0)}
+self.functions = {'func': (3, 10), 'main': (14, 0)}
+self.functions = {'func': (3, 10), 'main': (14, 0)}
+self.functions = {'func': (3, 10), 'main': (14, 0)}
+self.functions = {'func': (3, 10), 'main': (14, 0)}
+self.functions = {'func': (3, 10), 'main': (14, 0)}
+self.functions = {'func': (3, 10), 'main': (14, 0)}
+self.functions = {'func': (3, 10), 'main': (14, 0)}
+self.functions = {'func': (3, 10), 'main': (14, 0)}
+self.functions = {'func': (3, 10), 'main': (14, 0)}
+self.functions = {'func': (3, 10), 'main': (14, 0)}
+self.functions = {'func': (3, 10), 'main': (14, 29)}
+self.functions = {'func': (3, 10), 'main': (14, 29)}
+Proccess: Main Execution
+Process: Variable assignement
+Trying string on "Hello world"
+{'string_var': 'Hello world'}
+Proccess Completed succesfully
+
+Process: Variable assignement
+Trying string on 5
+Trying integer on 5
+{'string_var': 'Hello world', 'int_var': 5}
+Proccess Completed succesfully
+
+Process: Variable assignement
+Trying string on 5.5
+Trying integer on 5.5
+Trying float on 5.5
+{'string_var': 'Hello world', 'int_var': 5, 'float_var': 5.5}
+Proccess Completed succesfully
+
+Process: Variable assignement
+Trying string on False
+Trying integer on False
+Trying float on False
+Trying bool on False
+{'string_var': 'Hello world', 'int_var': 5, 'float_var': 5.5, 'bool_var': False}
+Proccess Completed succesfully
+
+Process: Printing
+Process: Printing
+Process: Printing
+Process: Printing
+Proccess Succesfully Completed

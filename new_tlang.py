@@ -2,7 +2,12 @@ from interpreter.interpreter import *
 
 if __name__ == '__main__':
     run = Interpreter()
-    run.execute()
+    try:
+        run.execute()
+    except SyntaxError as error:
+        append_to_file(f"{error}")
+        print(f"check log file for more info for error {error}")
+        print("Exiting...")
 
 # run files from the terminal, e.x. tleng_inter.py hellow.tleng
 #   tleng_inter.py --docs [/]
