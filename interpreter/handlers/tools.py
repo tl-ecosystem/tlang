@@ -7,7 +7,7 @@ variable_declaration_chars = ['$', '=']
 
 special_caracters = ('p(','n(','w(','i(','$', '@', 'r(')
 
-def formating_line( line: str) -> str:
+def formating_line( line: str) -> str: # easily can be simpler
     '''
     Formats the line for the easier readibility of other built-in functions (it basically clears any whitespace)
     '''
@@ -101,6 +101,7 @@ def bool_init(object: str) -> bool:
 def spacial_split(line: str) -> list[str]:
     return line.split()
 
-def append_to_file(line) -> None:
-    with open('script_runtime.log', 'a') as logger:
-        logger.write(line)
+def append_to_file(line, logging: bool = True) -> None: # For one line visibility in code.
+    if logging:
+        with open('script_runtime.log', 'a') as logger:
+            logger.write(line)

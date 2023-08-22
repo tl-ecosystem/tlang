@@ -17,8 +17,7 @@ class Functions(): # using the number of the line as the indicator to where to g
         if name in self.functions:
             return self.functions[name]
         else:
-            if logging:
-                append_to_file(f"The function with the name: {name}, doesn't exist.")
+            append_to_file(f"The function with the name: {name}, doesn't exist.")
             raise Exception(f"The function with the name: {name}, doesn't exist.\nCheck log file")
     
     def function_logging(self, script, logging: bool = False):
@@ -40,7 +39,8 @@ class Functions(): # using the number of the line as the indicator to where to g
                 if line[2:] in self.functions:
                     self.function_handler(line[2:], (self.functions[line[2:]][0],index))
             
-            if logging: # for debugging
-                append_to_file(f'self.functions = {self.functions}\n')
+            append_to_file(f'self.functions = {self.functions}\n', logging) # for debugging
                 
             index += 1
+        
+        append_to_file('Proccess Function Finder Completed\n\n')

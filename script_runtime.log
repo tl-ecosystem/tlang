@@ -31,35 +31,116 @@ self.functions = {'func': (3, 10), 'main': (14, 0)}
 self.functions = {'func': (3, 10), 'main': (14, 0)}
 self.functions = {'func': (3, 10), 'main': (14, 29)}
 self.functions = {'func': (3, 10), 'main': (14, 29)}
+Proccess Function Finder Completed
+
 Proccess: Main Execution
+Line: 15 succesfully interpreted
+Line: 16 succesfully interpreted
 Process: Variable assignement
 Trying string on "Hello world"
 {'string_var': 'Hello world'}
-Proccess Completed succesfully
+Proccess Variable assignement completed
 
+Line: 17 succesfully interpreted
+Line: 18 succesfully interpreted
 Process: Variable assignement
 Trying string on 5
 Trying integer on 5
 {'string_var': 'Hello world', 'int_var': 5}
-Proccess Completed succesfully
+Proccess Variable assignement completed
 
+Line: 19 succesfully interpreted
 Process: Variable assignement
 Trying string on 5.5
 Trying integer on 5.5
 Trying float on 5.5
 {'string_var': 'Hello world', 'int_var': 5, 'float_var': 5.5}
-Proccess Completed succesfully
+Proccess Variable assignement completed
 
+Line: 20 succesfully interpreted
+Line: 21 succesfully interpreted
 Process: Variable assignement
 Trying string on False
 Trying integer on False
 Trying float on False
 Trying bool on False
 {'string_var': 'Hello world', 'int_var': 5, 'float_var': 5.5, 'bool_var': False}
-Proccess Completed succesfully
+Proccess Variable assignement completed
 
+Line: 22 succesfully interpreted
+Line: 23 succesfully interpreted
 Process: Printing
+SubProcess: formater
+['$string_var', '$bool_var']
+Hello world
+Hello world
+Hello world
+Hello world
+['Hello world']
+
+$bool_var
+$bool_var
+$bool_var
+False
+['Hello world', 'False']
+
+SubProcess: Formater Completed
+Printing: Hello world
+Printing: False
+Process Print Completed
+Line: 24 succesfully interpreted
 Process: Printing
+SubProcess: formater
+['"$int_var + $float_var ="', '$int_var+$float_var']
+"$int_var + $float_var ="
+"5 + $float_var ="
+"5 + 5.5 ="
+"5 + 5.5 ="
+['"5 + 5.5 ="']
+
+$int_var+$float_var
+5+$float_var
+5+5.5
+5+5.5
+['"5 + 5.5 ="', '5+5.5']
+
+SubProcess: Formater Completed
+Printing: "5 + 5.5 ="
+Printing: 5+5.5
+Process Print Completed
+Line: 25 succesfully interpreted
 Process: Printing
+SubProcess: formater
+['"Your flag is: "', '$1']
+"Your flag is: "
+"Your flag is: "
+"Your flag is: "
+"Your flag is: "
+['"Your flag is: "']
+
+$1
+$1
+$1
+$1
+['"Your flag is: "', '$1']
+
+SubProcess: Formater Completed
+Printing: "Your flag is: "
+Printing: $1
+Process Print Completed
+Line: 26 succesfully interpreted
+Line: 27 succesfully interpreted
 Process: Printing
-Proccess Succesfully Completed
+SubProcess: formater
+['@func[$int_var]']
+@func[$int_var]
+@func[5]
+@func[5]
+@func[5]
+['@func[5]']
+
+SubProcess: Formater Completed
+Printing: @func[5]
+Process Print Completed
+Line: 28 succesfully interpreted
+Line: 29 succesfully interpreted

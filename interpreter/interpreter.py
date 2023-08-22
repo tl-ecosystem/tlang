@@ -1,7 +1,7 @@
 from interpreter.handlers.variables import *
 from interpreter.handlers.functions import *
 
-VER = 'v0.2dev.05'
+VER = 'v0.4dev.01'
 
 class Interpreter(Variables, Functions):
     def __init__(self):
@@ -45,8 +45,7 @@ class Interpreter(Variables, Functions):
                   "             2. Float\n"+
                   "             3. String\n"+
                   "             4. Bool\n"+
-                  "There should always be one line free in the end of the progam\n"+
-                  "Type --help to learn more\n")
+                  "Type \033[34m--help\033[0m to learn more\n")
             self.ran = True # used if the interpreter completed what it was told to do
     
 
@@ -70,16 +69,17 @@ class Interpreter(Variables, Functions):
             self.script_execution_handler()
         else:
             print('\033[31mFatal error\033[0m, there was no input')
+            print('Type \033[34m--help\033[0m, to get some help.')
 
 
     def main_execution(self):
         # get the pos of the main function and then run
         # if there is no pos of the main function then raise an exception
         pos = self.function_lookup('main', self.LOGGING)
-        if self.LOGGING:
-            append_to_file(f'Proccess: Main Execution\n')
+        append_to_file(f'Proccess: Main Execution\n', self.LOGGING)
 
         for line in self.tscript[pos[0]:pos[1]]: # TODO as a while acting as a for loop
+            self.line += 1
             line: str = formating_line(line) # str added for better pylint highlighting 
             if line.startswith('@'): #Function call
                 pass
@@ -91,8 +91,8 @@ class Interpreter(Variables, Functions):
             elif line.startswith('w('): #TODO
                 pass
             # Comments are lines that the interpreter doesn't find any key words
-        if self.LOGGING:
-            append_to_file(f'Proccess Succesfully Completed\n')
+            append_to_file(f'Line: {pos[0]+self.line} succesfully interpreted\n', self.LOGGING)
+
 
     def function_execution(self, pos: tuple):
         for line in self.tscript[pos[0]:pos[1]]: # TODO as a while acting as a for loop
@@ -112,7 +112,7 @@ class Interpreter(Variables, Functions):
     def math_operations(self, operat) -> str:
         return str(eval(operat))
     
-    def comma_splitter(self, line: str) -> str: # I HONESTLY DON'T KNOW HOW THIS WORKS RELIABLY
+    def comma_splitter(self, line: str) -> list: # I HONESTLY DON'T KNOW HOW THIS WORKS RELIABLY
         '''
         Formats the line for the easier readibility of other built-in functions (it basically clears any whitespace)
         '''
@@ -132,6 +132,13 @@ class Interpreter(Variables, Functions):
                 n_line += [temp_str]
                 temp_str = ''
                 index += 1
+            elif index + 1 == len(line) and in_quote == False:
+                if line[index] == ')':
+                    n_line += [temp_str]    
+                else:
+                    temp_str += line[index] 
+                    n_line += [temp_str]
+                index += 1              
             else:
                 temp_str += line[index]
                 index += 1
@@ -146,31 +153,47 @@ class Interpreter(Variables, Functions):
         Check if (with the logical operations list) there is a logical operation Return the value of str(True or False)
             Also if one of the sides in a logical operation need math, use the top checks
         '''
-
-        new_line = ''
-
+        append_to_file('SubProcess: formater\n', self.LOGGING) 
+        new_line = []
+        temp_str: str = ''
         new_line = self.comma_splitter(line)
+        temp_line = []
+        metadata_line = []
+
+        append_to_file(f'{new_line}\n', self.LOGGING)
 
         for sep in new_line:
             temp_var_list = list(self.variables.keys())
             temp_dct = self.variables
-            for i in temp_var_list:
-                temp_str = temp_str.replace('$'+i,str(temp_dct[i]))
 
+            temp_str = sep
+            for var in temp_var_list: #TODO add the find_multiple to add if it is mostly numerals then add to metadata that it is eval ready, pos2: True
+                                      #TODO also add string recognition, to just add a string and not the "" 
+                temp_str: str = temp_str.replace('$'+var,str(temp_dct[var]))
+                append_to_file(f'{temp_str}\n', self.LOGGING) 
+            temp_line += [temp_str]
+            append_to_file(f'{temp_line}\n\n', self.LOGGING) 
 
+        new_line = temp_line
+        temp_line = []
+        for sep in new_line:
+            try:
+                temp_line += str(sep)
+            except:
+                pass
+        append_to_file('SubProcess: Formater Completed\n', self.LOGGING) 
         return new_line
     #built in functions of tlang pseudo-programming language
 
     def print_func(self, line:str, vars): #TODO check if it easier to just search for every declared variable in the line 
-        if self.LOGGING:
-            append_to_file('Process: Printing\n')
+        append_to_file('Process: Printing\n', self.LOGGING) 
         
         temp_line = self.formater(line)
 
         for seps in temp_line:
-            print(seps)
+            append_to_file(f'Printing: {seps}\n', self.LOGGING) 
+            print(seps + ' ', end='')
+        print('')
 
-        if self.LOGGING:
-            append_to_file('Process Succesfully Completed\n')
-
+        append_to_file('Process Print Completed\n', self.LOGGING)
         # print(line[2:len(line)-2])
