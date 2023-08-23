@@ -19,7 +19,7 @@ You can also put -log in the end to get a full traceback: WARNING: -log is not c
 
 ## DOCUMENTATION
 
-Anything that isn't a scpecial keychar/keyword is considered a comment
+Anything that isn't a special keychar/keyword is considered a comment
 
 p() is for printing anything put inside will be printed
 
