@@ -22,7 +22,7 @@ You can also put -log in the end to get a full traceback: WARNING -log is curren
 
 Anything that isn't a scpecial keychar/keyword is considered a comment
 
-## Explicitness in syntax
+### Explicitness in syntax
 
 This language requires you to follow some strict rules, even though the interpreter might not tell you anything, for the smoothest experience always follow the syntax to not get some weird behaviour.
 
