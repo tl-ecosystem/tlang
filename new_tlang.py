@@ -1,4 +1,8 @@
+#!/etc/bin/python3
+#I don't know how to make it work
+
 from interpreter.interpreter import *
+
 
 if __name__ == '__main__':
     run = Interpreter()
@@ -28,7 +32,9 @@ PUSH COMMITS WHEN:
 MERGE TO MAIN WHEN:
     A WHOLE GOAL HAS BEEN ACHIEVED
 """
+
 # ---------------------------------------------------------------------
+
 """
 - new_tlang.py
 - demo.tlang

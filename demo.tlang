@@ -8,6 +8,7 @@ Anything that doesn't get recognised as a special character will be classed as a
 
     r($var_local + $var_local - $1)
     (always returns in string, if numeric will return numeric)
+    
 @e func
 
 
@@ -23,8 +24,8 @@ Anything that doesn't get recognised as a special character will be classed as a
 
     p($string_var,  $bool_var)
     p("$int_var + $float_var =", $int_var + $float_var)
-    p("Your flag is: ", $1)
-
+    p("Your first two flags are: ", $1, $2)
+    p("All of your flags are:", $0)
     p(@func[$int_var])
 
 @e main

@@ -2,7 +2,8 @@ from interpreter.handlers.tools import *
 
 class Variables():
     def __init__(self):
-        self.variables = {}
+        self.variables = {'0':None}
+    
 
     def variable_asssignment(self, line:str, LOGGING:bool=False): 
         append_to_file('Process: Variable assignement\n', LOGGING)
@@ -48,5 +49,5 @@ class Variables():
         try:
             return self.variables[name]
         except:
-            append_to_file("The variable {name} hasn't been assigned.")
+            append_to_file(f"The variable {name} hasn't been assigned.")
             raise Exception(f"The variable {name} hasn't been assigned.")

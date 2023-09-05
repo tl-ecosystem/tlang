@@ -1,7 +1,7 @@
 from interpreter.handlers.variables import *
 from interpreter.handlers.functions import *
 
-VER = 'v0.4dev.01'
+__ver__ = 'v0.4dev.02'
 
 class Interpreter(Variables, Functions):
     def __init__(self):
@@ -12,6 +12,7 @@ class Interpreter(Variables, Functions):
         self.ran = False # used if the interpreter completed what it was told to do
         self.LOGGING = False # not as supposed to work, but near enough for now, also not exactly a constant
         self.line = 0
+
 
     def argv_handler(self): # for color in text: \033[30m .test. \033[0m ([0m normal, [30m gray, [31m red, [32m green, [33m yellow, [34m blue)
         if self.flag[1] == '--help':
@@ -27,7 +28,7 @@ class Interpreter(Variables, Functions):
 
         elif self.flag[1] == '--version':
             print("VERSION with \033[34m--version\033[0m\n\n"+
-                  f"Current version is: \033[32m{VER}\033[0m\n\n"+
+                  f"Current version is: \033[32m{__ver__}\033[0m\n\n"+
                   "Type \033[34m--help\033[0m to learn more\n")
             self.ran = True # used if the interpreter completed what it was told to do
 
@@ -59,6 +60,13 @@ class Interpreter(Variables, Functions):
                     self.LOGGING = True
                     with open('script_runtime.log', 'w') as logger:
                         logger.write(f"File {self.flag[1]} Executed currently running:\n")
+            self.variables.update({'0':self.script_flags}) 
+            temp_int = 1
+            for i in self.script_flags:
+                self.variables.update({f'{temp_int}': i})
+                temp_int += 1
+            del temp_int
+
             self.function_logging(self.tscript, self.LOGGING)
             self.main_execution()
 
@@ -109,9 +117,11 @@ class Interpreter(Variables, Functions):
             elif line.startswith('r('): #TODO
                 return 'smt?'     
     
+    
     def math_operations(self, operat) -> str:
         return str(eval(operat))
     
+
     def comma_splitter(self, line: str) -> list: # I HONESTLY DON'T KNOW HOW THIS WORKS RELIABLY
         '''
         Formats the line for the easier readibility of other built-in functions (it basically clears any whitespace)
@@ -144,7 +154,8 @@ class Interpreter(Variables, Functions):
                 index += 1
         return n_line
 
-    def formater(self, line) -> list:
+
+    def formater(self, line, split_commas:bool = True, for_printing:bool=False) -> list: #add splitting commas to make the implementation of If and while easier
         '''
         Check the strings for any use of a variable and replace it 
             (it is not allowed to make any mathematical operation inside a string) 
@@ -158,7 +169,7 @@ class Interpreter(Variables, Functions):
         temp_str: str = ''
         new_line = self.comma_splitter(line)
         temp_line = []
-        metadata_line = []
+        metadata_line = [] # to dynamically find if something is eval ready or not
 
         append_to_file(f'{new_line}\n', self.LOGGING)
 
@@ -167,8 +178,7 @@ class Interpreter(Variables, Functions):
             temp_dct = self.variables
 
             temp_str = sep
-            for var in temp_var_list: #TODO add the find_multiple to add if it is mostly numerals then add to metadata that it is eval ready, pos2: True
-                                      #TODO also add string recognition, to just add a string and not the "" 
+            for var in temp_var_list: #TODO dynamically check every variable in sep, and add in metadata 
                 temp_str: str = temp_str.replace('$'+var,str(temp_dct[var]))
                 append_to_file(f'{temp_str}\n', self.LOGGING) 
             temp_line += [temp_str]
@@ -182,13 +192,16 @@ class Interpreter(Variables, Functions):
             except:
                 pass
         append_to_file('SubProcess: Formater Completed\n', self.LOGGING) 
+
+        #TODO also add string recognition, to just add a string and not the "" when returning the string for printing
         return new_line
     #built in functions of tlang pseudo-programming language
+
 
     def print_func(self, line:str, vars): #TODO check if it easier to just search for every declared variable in the line 
         append_to_file('Process: Printing\n', self.LOGGING) 
         
-        temp_line = self.formater(line)
+        temp_line = self.formater(line, for_printing=True)
 
         for seps in temp_line:
             append_to_file(f'Printing: {seps}\n', self.LOGGING) 
