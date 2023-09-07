@@ -7,7 +7,7 @@ To run a script written in tleng you need to type in the terminal
 
     --> python pytlang.py name_of_file.tlang
     
-You can also put -log in the end to get a full traceback: WARNING -log is currently printing OLNY every assigned variable when it's assigned
+You can also put -log in the end to get a full traceback:
 
     --> python pytlang.py name_of_file.tlang -log
     
