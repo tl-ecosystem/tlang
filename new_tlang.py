@@ -8,22 +8,21 @@ if __name__ == '__main__':
     run = Interpreter()
     try:
         run.execute()
-    except SyntaxError as error:
+    except Exception as error:
         append_to_file(f"{error}")
-        print(f"check log file for more info for error {error}")
+        print(f"check log file for more info for error: \n-> {error}")
         print("Exiting...")
 
 # run files from the terminal, e.x. tleng_inter.py hellow.tleng
 #   tleng_inter.py --docs [/]
 # printing TODO change and add support to math, and separationg using , 
 # varibles TODO change string to be only gathered in "", fix bug with just writing $var == {'var' : '$var'}
-# comments *
+# comments with #
 # functions (Local variables, return) later add support for kargs for functions
 # if statement
 # while/for loop
 # built in function length, random, type
 # add logging
-# dynamic comments with {} (removed when formating line)
 
 """
 PUSH COMMITS WHEN:

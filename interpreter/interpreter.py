@@ -1,7 +1,10 @@
 from interpreter.handlers.variables import *
 from interpreter.handlers.functions import *
+from interpreter.handlers.tools import *
 
-__ver__ = 'v0.4dev.02'
+# ngl i am tired of this project, gotta finish it though
+
+__ver__ = 'v0.4dev.03'
 
 class Interpreter(Variables, Functions):
     def __init__(self):
@@ -10,8 +13,8 @@ class Interpreter(Variables, Functions):
         self.flag = sys.argv
         self.script_flags = self.flag[2:]
         self.ran = False # used if the interpreter completed what it was told to do
-        self.LOGGING = False # not as supposed to work, but near enough for now, also not exactly a constant
-        self.line = 0
+        self.logging = False # not as supposed to work, but near enough for now, also not exactly a constant
+        self.curr_line = 0 # current line
 
 
     def argv_handler(self): # for color in text: \033[30m .test. \033[0m ([0m normal, [30m gray, [31m red, [32m green, [33m yellow, [34m blue)
@@ -57,7 +60,7 @@ class Interpreter(Variables, Functions):
             if len(self.flag) > 2:
                 if self.flag[2] == '-log':
                     self.script_flags = self.flag[3:]
-                    self.LOGGING = True
+                    self.logging = True
                     with open('script_runtime.log', 'w') as logger:
                         logger.write(f"File {self.flag[1]} Executed currently running:\n")
             self.variables.update({'0':self.script_flags}) 
@@ -67,7 +70,7 @@ class Interpreter(Variables, Functions):
                 temp_int += 1
             del temp_int
 
-            self.function_logging(self.tscript, self.LOGGING)
+            self.function_logging(self.tscript, self.logging)
             self.main_execution()
 
 
@@ -83,23 +86,30 @@ class Interpreter(Variables, Functions):
     def main_execution(self):
         # get the pos of the main function and then run
         # if there is no pos of the main function then raise an exception
-        pos = self.function_lookup('main', self.LOGGING)
-        append_to_file(f'Proccess: Main Execution\n', self.LOGGING)
+        try:
+            pos = self.function_lookup('main', self.logging)
+        except:
+            append_to_file(f'Function main was not found.', self.logging, True)    
+        append_to_file(f'Proccess: Main Execution\n', self.logging)
 
         for line in self.tscript[pos[0]:pos[1]]: # TODO as a while acting as a for loop
-            self.line += 1
-            line: str = formating_line(line) # str added for better pylint highlighting 
+            self.curr_line += 1
+            append_to_file(f'Line: {pos[0]+self.curr_line} is being interpreted\n', self.logging)
+            line : str = formating_line(line) # str added for better pylint highlighting 
             if line.startswith('@'): #Function call
                 pass
                 # self.function_execution(self.function_lookup())
             elif line.startswith('p('): # print, also handles variable detection
                 self.print_func(line.replace('p(',''), self.variables) #line.replace('p(','') then also change the print_func
             elif line.startswith('$'): # variable declaration or re-declaration
-                self.variable_asssignment(line, self.LOGGING)
-            elif line.startswith('w('): #TODO
+                self.variable_asssignment(line, self.logging)
+            elif line.startswith('w('): # TODO while statement
+                pass
+            elif line.startswith('i('): # TODO if statement
                 pass
             # Comments are lines that the interpreter doesn't find any key words
-            append_to_file(f'Line: {pos[0]+self.line} succesfully interpreted\n', self.LOGGING)
+            #
+            append_to_file(f'Line: {pos[0]+self.curr_line} succesfully interpreted\n\n', self.logging)
 
 
     def function_execution(self, pos: tuple):
@@ -111,11 +121,11 @@ class Interpreter(Variables, Functions):
             elif line.startswith('p('): # print, also handles variable detection
                 self.print_func(line.replace('p(',''), self.variables) #line.replace('p(','') then also change the print_func
             elif line.startswith('$'): # variable declaration or re-declaration
-                self.variable_asssignment(line, self.LOGGING)
+                self.variable_asssignment(line, self.logging)
             elif line.startswith('w('): #TODO
                 pass
             elif line.startswith('r('): #TODO
-                return 'smt?'     
+                pass    
     
     
     def math_operations(self, operat) -> str:
@@ -129,20 +139,20 @@ class Interpreter(Variables, Functions):
         n_line = []
         index = 0
         temp_str = ''
-        in_quote = False
+        in_comma = False
         quote_num = 0
         while index != len(line): # a controlable for loop as a while loop 
             if line[index] == '"': # char = line[index]
                 quote_num += 1
             if quote_num % 2 == 0:
-                in_quote = False
+                in_comma = False
             else:
-                in_quote = True
-            if line[index] == ',' and in_quote == False:
+                in_comma = True
+            if line[index] == ',' and in_comma == False:
                 n_line += [temp_str]
                 temp_str = ''
                 index += 1
-            elif index + 1 == len(line) and in_quote == False:
+            elif index + 1 == len(line) and in_comma == False:
                 if line[index] == ')':
                     n_line += [temp_str]    
                 else:
@@ -155,6 +165,7 @@ class Interpreter(Variables, Functions):
         return n_line
 
 
+
     def formater(self, line, split_commas:bool = True, for_printing:bool=False) -> list: #add splitting commas to make the implementation of If and while easier
         '''
         Check the strings for any use of a variable and replace it 
@@ -164,25 +175,40 @@ class Interpreter(Variables, Functions):
         Check if (with the logical operations list) there is a logical operation Return the value of str(True or False)
             Also if one of the sides in a logical operation need math, use the top checks
         '''
-        append_to_file('SubProcess: formater\n', self.LOGGING) 
+        append_to_file('SubProcess: formater\n', self.logging) 
         new_line = []
         temp_str: str = ''
-        new_line = self.comma_splitter(line)
+        if split_commas:
+            new_line = self.comma_splitter(line)
+        else:
+            new_line += [line]
         temp_line = []
         metadata_line = [] # to dynamically find if something is eval ready or not
 
-        append_to_file(f'{new_line}\n', self.LOGGING)
+        append_to_file(f'{new_line}\n', self.logging)
 
         for sep in new_line:
             temp_var_list = list(self.variables.keys())
             temp_dct = self.variables
 
             temp_str = sep
-            for var in temp_var_list: #TODO dynamically check every variable in sep, and add in metadata 
+            temp_find = sep.find('$')
+            many_vars = find_loop(sep, '$') - find_loop(sep, '\$') # simplicity over optimization
+            # if temp_find > -1:
+            #     if sep[temp_find+1] 
+
+            for var in temp_var_list: # TODO dynamically check every variable in sep and strings and numerals, and add in metadata 
+                                      # we can use the reco_type function from tools.py
+                                      # TODO room for optimization, newer algorithm for finding stuff
                 temp_str: str = temp_str.replace('$'+var,str(temp_dct[var]))
-                append_to_file(f'{temp_str}\n', self.LOGGING) 
+                many_vars -= find_loop(temp_str, '$'+var) - find_loop(temp_str, '\$'+var)
+
+                append_to_file(f'{temp_str} with var ${var}\n', self.logging) 
+
             temp_line += [temp_str]
-            append_to_file(f'{temp_line}\n\n', self.LOGGING) 
+            append_to_file(f'{temp_line}\n\n', self.logging) 
+
+            del temp_find
 
         new_line = temp_line
         temp_line = []
@@ -191,22 +217,35 @@ class Interpreter(Variables, Functions):
                 temp_line += str(sep)
             except:
                 pass
-        append_to_file('SubProcess: Formater Completed\n', self.LOGGING) 
-
-        #TODO also add string recognition, to just add a string and not the "" when returning the string for printing
+        append_to_file('Check for printing\n', self.logging)
+        temp_line = []
+        if for_printing:
+            append_to_file('Printing is True\n', self.logging)
+            for sep in new_line:
+                append_to_file(f'replacing on {sep}\n', self.logging)
+                temp_line += [sep.replace('"','')]
+            new_line = temp_line
+            append_to_file(f'Replaced " for printing: {temp_line}\n', self.logging)
+        else:
+            append_to_file('Printing is False\n', self.logging)
+        
+        append_to_file('SubProcess: Formater Completed\n', self.logging) 
+        
         return new_line
-    #built in functions of tlang pseudo-programming language
+    
+
+    # --------------------------------built in functions of tlang pseudo-programming language ---------------------------
 
 
     def print_func(self, line:str, vars): #TODO check if it easier to just search for every declared variable in the line 
-        append_to_file('Process: Printing\n', self.LOGGING) 
+        append_to_file('Process: Printing\n', self.logging) 
         
         temp_line = self.formater(line, for_printing=True)
 
         for seps in temp_line:
-            append_to_file(f'Printing: {seps}\n', self.LOGGING) 
+            append_to_file(f'Printing: {seps}\n', self.logging) 
             print(seps + ' ', end='')
         print('')
 
-        append_to_file('Process Print Completed\n', self.LOGGING)
+        append_to_file('Process Print Completed\n', self.logging)
         # print(line[2:len(line)-2])

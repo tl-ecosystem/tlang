@@ -1,15 +1,15 @@
-# TLangPy
+# PyTLang
 #### WARNING: Code poorly optimized, and written like spaghetti. The reason is because this project was supposed to be small, but accidently made it bigger than envisioned, which led to me writing poor code due to the short time. Please understand if I fix any issues considering optimazation or readability is going to happen ONLY because I need the language for a particular use for another project.
 
 A pseudo-programming interpreted language created using Python. A fun little project.
 
 To run a script written in tleng you need to type in the terminal
 
-    --> python tlang1.py name_of_file.tlang
+    --> python pytlang.py name_of_file.tlang
     
 You can also put -log in the end to get a full traceback: WARNING -log is currently printing OLNY every assigned variable when it's assigned
 
-    --> python tlang1.py name_of_file.tlang -log
+    --> python pytlang.py name_of_file.tlang -log
     
 --version : to get the version of the interpreter
 
@@ -20,9 +20,11 @@ You can also put -log in the end to get a full traceback: WARNING -log is curren
 
 ## DOCUMENTATION
 
+
+- ### Comments
 Anything that isn't a scpecial keychar/keyword is considered a comment
 
-### Explicitness in syntax
+- ### Explicitness in syntax
 
 This language requires you to follow some strict rules, even though the interpreter might not tell you anything, for the smoothest experience always follow the syntax to not get some weird behaviour.
 
@@ -30,13 +32,13 @@ In terms of the spaces, and the indents, this language is whitespace free for mo
 
 Due to not using a semicolon every single line is supposed to hold one or a part of a function.
 
-### Printing to the terminal
+- ### Printing to the terminal
 
 `p()` (p = print) is for printing anything put inside will be printed
 
     p(Hello World)
 
-### Creating Variables 
+- ### Creating Variables 
 
 You can create variables using the `$` and name them whatever you want, the type of the variable will be assigned automativally
 
@@ -44,17 +46,20 @@ You can create variables using the `$` and name them whatever you want, the type
     
 There are four types of variables that the Language supports.
 
-- Integer
-- Float
-- String
-- Bool
+1. Integer
 
-### Creating Functions
+2. Float
 
-You can create a function by typing `@s` (s = start), an then to finish the function you need to type `@e` (e = end) and then the name of the function:
+3. String
+
+4. Bool
+
+- ### Creating Functions
+
+You can create a function by typing `@s` (s = start), to finish the function you need to type `@e` (e = end) and then the name of the function:
     
     @s Function_name
-        p("This is inside a function in PyTlang")
+        p("This is a function in PyTlang")
     @e Function_name
 
 To pass arguments in the function you need to type `$1`, according to how many arguments you have passed that much the number goes up, if you want to see every flag then you can type $0 (for debug porpuses only):
@@ -80,3 +85,9 @@ If you want to return something from the function then you can type it in `r()` 
         $var_2 = 6
         p("The sum of $var_1 + $var2 =", @add[ $var_1, $var_2 ])
     @e main
+
+- ### Debugging Tlang Code
+
+After you type the file you can also type -log, when you run the program a new file will be created in the working directory with every step that the language takes to run.
+
+    -> python pytlang.py demo.tlang -log

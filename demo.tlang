@@ -11,8 +11,30 @@ Anything that doesn't get recognised as a special character will be classed as a
     
 @e func
 
+@s square_root
+    i($1 > 0)s
+        r($1**0.5)
+    ie
+    ei($1 == 0)s
+        r(0)
+    eie
+    es
+        r("Number smaller than one")
+    ee
+@e square_root
 
-(start)
+
+@s factorial 
+    $temp = 1
+    wf($var = 1, $var < $1)s
+        $temp = $temp * $var
+    wf($var++)s
+    r($temp)
+@e factorial
+
+
+
+# start
 @s main
 
     $string_var = "Hello world"
@@ -26,7 +48,8 @@ Anything that doesn't get recognised as a special character will be classed as a
     p("$int_var + $float_var =", $int_var + $float_var)
     p("Your first two flags are: ", $1, $2)
     p("All of your flags are:", $0)
+    p("testing whitespace character against variable, \$hello")
     p(@func[$int_var])
 
 @e main
-(end)
+# end
