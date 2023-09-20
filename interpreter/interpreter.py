@@ -15,6 +15,7 @@ class Interpreter(Variables, Functions):
         self.ran = False # used if the interpreter completed what it was told to do
         self.logging = False # not as supposed to work, but near enough for now, also not exactly a constant
         self.test_list = [] # always save here
+        self.testing= False
         self.curr_line = 0 # current line
         self.log_list = []
 
@@ -83,6 +84,9 @@ class Interpreter(Variables, Functions):
         if inputt != []:
             self.inputest = inputt
         
+        if testing:
+            self.testing = True
+
         if len(self.flag) > 1:
             self.argv_handler()
             self.script_execution_handler()
@@ -265,8 +269,11 @@ class Interpreter(Variables, Functions):
         for seps in temp_line:
             append_to_file(f'Printing: {seps}\n', self.logging) 
             temp_test_line += seps.replace('\n', '\n') + ' '
-            # if self.testing: # TODO
-            print(seps.replace('\n', '\n') + ' ', end='')
+            
+            if self.testing: # TODO
+                continue
+            else:
+                print(seps.replace('\n', '\n') + ' ', end='')
         
         self.test_list += [temp_test_line]
 
