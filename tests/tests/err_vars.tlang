@@ -1,0 +1,6 @@
+@s main
+    p($var)
+@e main
+
+# Expected:
+# Unassigned variable $var.

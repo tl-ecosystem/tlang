@@ -281,6 +281,10 @@ class Interpreter(Variables, Functions):
                 self.variable_asssignment(line, self.LOGGING)
             elif line.startswith('w('): #TODO
                 pass
+            elif line.startswith('#'):
+                continue
+            else:
+                lo
     
     
     def math_operations(self, operat) -> str:

@@ -1,0 +1,6 @@
+@s main
+    p("Hello world!")
+@e main
+
+# Expected:
+# Hello world! 

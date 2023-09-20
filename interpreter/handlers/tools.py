@@ -1,11 +1,8 @@
 import sys
 
-math_chars = ['+', '-', '/', '*', '**',['(',')']]
+math_chars = ['+', '-', '/', '*', '**', '%',['(',')']]
 logical_operations = ['>', '<', '!=', '==']
 escape_chars = [' '] + math_chars[:len(math_chars)-1] + logical_operations + [')']
-variable_declaration_chars = ['$', '=']
-
-special_caracters = ('p(','n(','w(','i(','$', '@', 'r(')
 
 
 def formating_line( line: str) -> str: # easily can be simpler
@@ -128,7 +125,7 @@ def spacial_split(line: str) -> list[str]: # Probably not needed
     return line.split()
 
 
-def append_to_file(line, logging: bool = True, exception : bool = False) -> None: # For one line visibility in code.
+def append_to_file(line:str|list[str,],except_line:str='', logging: bool = True, exception : bool = False, file_name:str='') -> None: # For one line visibility in code.
     '''
     Append text to a file.
     Also can handle exceptions by raising the text that was used to the file.
@@ -137,12 +134,25 @@ def append_to_file(line, logging: bool = True, exception : bool = False) -> None
     :logging: bool, handles the if it will log or not
     :exception: if set to True it will also output an exception with the same line that was appended to text
     '''
+    log_name = 'script_runtime.log'
+    if file_name != '':
+        log_name = file_name
+
     if logging:
-        with open('script_runtime.log', 'a') as logger:
-            logger.write(line)
+        with open(log_name, 'a') as logger:
+            if type(line) == list:
+                for i in line:
+                    logger.write(i)
+                logger.write(except_line)
+            else:
+                logger.write(line)
+
     if exception:
-        raise Exception(line)
-    
+        if except_line != '':
+            raise Exception(except_line)
+        else:
+            raise Exception(line)
+
 
 def reco_type(line:str, onlytype:bool = False, LOGGING:bool = False):
     '''

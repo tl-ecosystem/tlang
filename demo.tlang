@@ -1,48 +1,57 @@
-Anything that doesn't get recognised as a special character will be classed as a comment
+# Anything that doesn't get recognised as a special character will be classed as a comment
 
 
-@s func
+@s func [1]
 
-    $var_local = 5
-    $var_local = 6
+    $var_local <- int = 5
+    $var_local <- int = 6
 
     r($var_local + $var_local - $1)
     (always returns in string, if numeric will return numeric)
     
 @e func
 
-@s square_root
+
+@s square_root [1]
     i($1 > 0)s
         r($1**0.5)
-    ie
+    # ie
     ei($1 == 0)s
         r(0)
     eie
     es
-        r("Number smaller than one")
+        r("Number smaller than one is not permitted")
     ee
 @e square_root
 
 
-@s factorial 
+@s factorial  [1]
     $temp = 1
     wf($var = 1, $var < $1)s
         $temp = $temp * $var
-    wf($var++)s
+    wf($var++)e  # could also be $var += 5 
     r($temp)
 @e factorial
 
+
+@s add [2]
+    r($1 + $2)
+@e add
 
 
 # start
 @s main
 
-    $string_var = "Hello world"
+    p($bruh) # <- not permitted
 
-    $int_var = 5
-    $float_var = 5.5
+    dfjghdjfhgdkijfhgd
+    
+    $string_var <- string = "Hello world \$"
 
-    $bool_var = False
+    $int_var <- integer = 5
+    $float_var <- float = 5.5
+
+    $bool_var <- boolean = False
 
     p($string_var,  $bool_var)
     p("$int_var + $float_var =", $int_var + $float_var)

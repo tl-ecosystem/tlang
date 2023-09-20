@@ -14,10 +14,12 @@ class Interpreter(Variables, Functions):
         self.script_flags = self.flag[2:]
         self.ran = False # used if the interpreter completed what it was told to do
         self.logging = False # not as supposed to work, but near enough for now, also not exactly a constant
+        self.test_list = [] # always save here
         self.curr_line = 0 # current line
+        self.log_list = []
 
 
-    def argv_handler(self): # for color in text: \033[30m .test. \033[0m ([0m normal, [30m gray, [31m red, [32m green, [33m yellow, [34m blue)
+    def argv_handler(self): # for color in text: \033[30m .test. \033[0m ( [0m normal, [30m gray, [31m red, [32m green, [33m yellow, [34m blue )
         if self.flag[1] == '--help':
             print("\nHELP with \033[34m--help\033[0m" + "\n" +
                   "    To run a script written in tlang you need to type in the terminal\n"+
@@ -54,7 +56,7 @@ class Interpreter(Variables, Functions):
     
 
     def script_execution_handler(self):
-        if self.ran != True:
+        if self.ran != True: # if any previous function didn't ran the run this
             with open(self.flag[1], 'r') as f:
                 self.tscript = f.readlines()
             if len(self.flag) > 2:
@@ -74,13 +76,22 @@ class Interpreter(Variables, Functions):
             self.main_execution()
 
 
-    def execute(self):
+    def execute(self, testing: bool = False, flags: list = [], inputt:list=[]):
+        if flags != []:
+            self.flag = flags
+
+        if inputt != []:
+            self.inputest = inputt
+        
         if len(self.flag) > 1:
             self.argv_handler()
             self.script_execution_handler()
         else:
             print('\033[31mFatal error\033[0m, there was no input')
             print('Type \033[34m--help\033[0m, to get some help.')
+
+        if testing:
+            return self.test_list
 
 
     def main_execution(self):
@@ -89,7 +100,7 @@ class Interpreter(Variables, Functions):
         try:
             pos = self.function_lookup('main', self.logging)
         except:
-            append_to_file(f'Function main was not found.', self.logging, True)    
+            append_to_file(self.log_list, f'Function main was not found.', self.logging, True)    
         append_to_file(f'Proccess: Main Execution\n', self.logging)
 
         for line in self.tscript[pos[0]:pos[1]]: # TODO as a while acting as a for loop
@@ -107,6 +118,10 @@ class Interpreter(Variables, Functions):
                 pass
             elif line.startswith('i('): # TODO if statement
                 pass
+            elif line.startswith('#') or line == '':
+                continue
+            else:
+                append_to_file(f"Syntax error, could not interpret line {pos[0]+self.curr_line} -> \"{line}\"", self.logging, True)
             # Comments are lines that the interpreter doesn't find any key words
             #
             append_to_file(f'Line: {pos[0]+self.curr_line} succesfully interpreted\n\n', self.logging)
@@ -126,7 +141,10 @@ class Interpreter(Variables, Functions):
                 pass
             elif line.startswith('r('): #TODO
                 pass    
-    
+            elif line.startswith('#'):
+                continue
+            else:
+                append_to_file("Syntax error, could not interpret this line", self.logging, True)
     
     def math_operations(self, operat) -> str:
         return str(eval(operat))
@@ -165,7 +183,6 @@ class Interpreter(Variables, Functions):
         return n_line
 
 
-
     def formater(self, line, split_commas:bool = True, for_printing:bool=False) -> list: #add splitting commas to make the implementation of If and while easier
         '''
         Check the strings for any use of a variable and replace it 
@@ -196,6 +213,8 @@ class Interpreter(Variables, Functions):
             many_vars = find_loop(sep, '$') - find_loop(sep, '\$') # simplicity over optimization
             # if temp_find > -1:
             #     if sep[temp_find+1] 
+
+            
 
             for var in temp_var_list: # TODO dynamically check every variable in sep and strings and numerals, and add in metadata 
                                       # we can use the reco_type function from tools.py
@@ -241,11 +260,15 @@ class Interpreter(Variables, Functions):
         append_to_file('Process: Printing\n', self.logging) 
         
         temp_line = self.formater(line, for_printing=True)
+        temp_test_line: str = ''
 
         for seps in temp_line:
             append_to_file(f'Printing: {seps}\n', self.logging) 
-            print(seps + ' ', end='')
-        print('')
+            temp_test_line += seps.replace('\n', '\n') + ' '
+            # if self.testing: # TODO
+            print(seps.replace('\n', '\n') + ' ', end='')
+        
+        self.test_list += [temp_test_line]
 
-        append_to_file('Process Print Completed\n', self.logging)
+        append_to_file('Proccess Print Completed\n', self.logging)
         # print(line[2:len(line)-2])

@@ -1,240 +1,32 @@
-File demo.tlang Executed currently running:
+File tests/tests/flags.tlang Executed currently running:
 Proccess: Finding functions
-self.functions = {}
-self.functions = {}
-self.functions = {}
-self.functions = {'func': (3, 0)}
-self.functions = {'func': (3, 0)}
-self.functions = {'func': (3, 0)}
-self.functions = {'func': (3, 0)}
-self.functions = {'func': (3, 0)}
-self.functions = {'func': (3, 0)}
-self.functions = {'func': (3, 0)}
-self.functions = {'func': (3, 0)}
-self.functions = {'func': (3, 11)}
-self.functions = {'func': (3, 11)}
-self.functions = {'func': (3, 11), 'square_root': (13, 0)}
-self.functions = {'func': (3, 11), 'square_root': (13, 0)}
-self.functions = {'func': (3, 11), 'square_root': (13, 0)}
-self.functions = {'func': (3, 11), 'square_root': (13, 0)}
-self.functions = {'func': (3, 11), 'square_root': (13, 0)}
-self.functions = {'func': (3, 11), 'square_root': (13, 0)}
-self.functions = {'func': (3, 11), 'square_root': (13, 0)}
-self.functions = {'func': (3, 11), 'square_root': (13, 0)}
-self.functions = {'func': (3, 11), 'square_root': (13, 0)}
-self.functions = {'func': (3, 11), 'square_root': (13, 0)}
-self.functions = {'func': (3, 11), 'square_root': (13, 23)}
-self.functions = {'func': (3, 11), 'square_root': (13, 23)}
-self.functions = {'func': (3, 11), 'square_root': (13, 23)}
-self.functions = {'func': (3, 11), 'square_root': (13, 23), 'factorial': (26, 0)}
-self.functions = {'func': (3, 11), 'square_root': (13, 23), 'factorial': (26, 0)}
-self.functions = {'func': (3, 11), 'square_root': (13, 23), 'factorial': (26, 0)}
-self.functions = {'func': (3, 11), 'square_root': (13, 23), 'factorial': (26, 0)}
-self.functions = {'func': (3, 11), 'square_root': (13, 23), 'factorial': (26, 0)}
-self.functions = {'func': (3, 11), 'square_root': (13, 23), 'factorial': (26, 0)}
-self.functions = {'func': (3, 11), 'square_root': (13, 23), 'factorial': (26, 32)}
-self.functions = {'func': (3, 11), 'square_root': (13, 23), 'factorial': (26, 32)}
-self.functions = {'func': (3, 11), 'square_root': (13, 23), 'factorial': (26, 32)}
-self.functions = {'func': (3, 11), 'square_root': (13, 23), 'factorial': (26, 32)}
-self.functions = {'func': (3, 11), 'square_root': (13, 23), 'factorial': (26, 32)}
-self.functions = {'func': (3, 11), 'square_root': (13, 23), 'factorial': (26, 32), 'main': (37, 0)}
-self.functions = {'func': (3, 11), 'square_root': (13, 23), 'factorial': (26, 32), 'main': (37, 0)}
-self.functions = {'func': (3, 11), 'square_root': (13, 23), 'factorial': (26, 32), 'main': (37, 0)}
-self.functions = {'func': (3, 11), 'square_root': (13, 23), 'factorial': (26, 32), 'main': (37, 0)}
-self.functions = {'func': (3, 11), 'square_root': (13, 23), 'factorial': (26, 32), 'main': (37, 0)}
-self.functions = {'func': (3, 11), 'square_root': (13, 23), 'factorial': (26, 32), 'main': (37, 0)}
-self.functions = {'func': (3, 11), 'square_root': (13, 23), 'factorial': (26, 32), 'main': (37, 0)}
-self.functions = {'func': (3, 11), 'square_root': (13, 23), 'factorial': (26, 32), 'main': (37, 0)}
-self.functions = {'func': (3, 11), 'square_root': (13, 23), 'factorial': (26, 32), 'main': (37, 0)}
-self.functions = {'func': (3, 11), 'square_root': (13, 23), 'factorial': (26, 32), 'main': (37, 0)}
-self.functions = {'func': (3, 11), 'square_root': (13, 23), 'factorial': (26, 32), 'main': (37, 0)}
-self.functions = {'func': (3, 11), 'square_root': (13, 23), 'factorial': (26, 32), 'main': (37, 0)}
-self.functions = {'func': (3, 11), 'square_root': (13, 23), 'factorial': (26, 32), 'main': (37, 0)}
-self.functions = {'func': (3, 11), 'square_root': (13, 23), 'factorial': (26, 32), 'main': (37, 0)}
-self.functions = {'func': (3, 11), 'square_root': (13, 23), 'factorial': (26, 32), 'main': (37, 0)}
-self.functions = {'func': (3, 11), 'square_root': (13, 23), 'factorial': (26, 32), 'main': (37, 52)}
-self.functions = {'func': (3, 11), 'square_root': (13, 23), 'factorial': (26, 32), 'main': (37, 52)}
+self.functions = {'main': (0, 0)}
+self.functions = {'main': (0, 0)}
+self.functions = {'main': (0, 0)}
+self.functions = {'main': (0, 3)}
+self.functions = {'main': (0, 3)}
+self.functions = {'main': (0, 3)}
+self.functions = {'main': (0, 3)}
+self.functions = {'main': (0, 3)}
+self.functions = {'main': (0, 3)}
+self.functions = {'main': (0, 3)}
 Proccess Function Finder Completed
 
 Proccess: Main Execution
-Line: 38 is being interpreted
-Line: 38 succesfully interpreted
+Line: 1 is being interpreted
+Line: 1 succesfully interpreted
 
-Line: 39 is being interpreted
-Line: 39 succesfully interpreted
-
-Line: 40 is being interpreted
-Process: Variable assignement
-Recognision Proccess started
-
-Trying string on "Hello world"
-The type of Hello world is <class 'str'>
-Recognision Proccess completed
-
-{'0': ['12', '34', '56', '78', '90'], '1': '12', '2': '34', '3': '56', '4': '78', '5': '90', 'string_var': 'Hello world'}
-Proccess Variable assignement completed
-
-Line: 40 succesfully interpreted
-
-Line: 41 is being interpreted
-Line: 41 succesfully interpreted
-
-Line: 42 is being interpreted
-Process: Variable assignement
-Recognision Proccess started
-
-Trying string on 5
-Trying integer on 5
-The type of 5 is <class 'int'>
-Recognision Proccess completed
-
-{'0': ['12', '34', '56', '78', '90'], '1': '12', '2': '34', '3': '56', '4': '78', '5': '90', 'string_var': 'Hello world', 'int_var': 5}
-Proccess Variable assignement completed
-
-Line: 42 succesfully interpreted
-
-Line: 43 is being interpreted
-Process: Variable assignement
-Recognision Proccess started
-
-Trying string on 5.5
-Trying integer on 5.5
-Trying float on 5.5
-The type of 5.5 is <class 'float'>
-Recognision Proccess completed
-
-{'0': ['12', '34', '56', '78', '90'], '1': '12', '2': '34', '3': '56', '4': '78', '5': '90', 'string_var': 'Hello world', 'int_var': 5, 'float_var': 5.5}
-Proccess Variable assignement completed
-
-Line: 43 succesfully interpreted
-
-Line: 44 is being interpreted
-Line: 44 succesfully interpreted
-
-Line: 45 is being interpreted
-Process: Variable assignement
-Recognision Proccess started
-
-Trying string on False
-Trying integer on False
-Trying float on False
-Trying bool on False
-The type of False is <class 'bool'>
-Recognision Proccess completed
-
-{'0': ['12', '34', '56', '78', '90'], '1': '12', '2': '34', '3': '56', '4': '78', '5': '90', 'string_var': 'Hello world', 'int_var': 5, 'float_var': 5.5, 'bool_var': False}
-Proccess Variable assignement completed
-
-Line: 45 succesfully interpreted
-
-Line: 46 is being interpreted
-Line: 46 succesfully interpreted
-
-Line: 47 is being interpreted
+Line: 2 is being interpreted
 Process: Printing
 SubProcess: formater
-['$string_var', '$bool_var']
-$string_var with var $0
-$string_var with var $1
-$string_var with var $2
-$string_var with var $3
-$string_var with var $4
-$string_var with var $5
-Hello world with var $string_var
-Hello world with var $int_var
-Hello world with var $float_var
-Hello world with var $bool_var
-['Hello world']
-
-$bool_var with var $0
-$bool_var with var $1
-$bool_var with var $2
-$bool_var with var $3
-$bool_var with var $4
-$bool_var with var $5
-$bool_var with var $string_var
-$bool_var with var $int_var
-$bool_var with var $float_var
-False with var $bool_var
-['Hello world', 'False']
-
-Check for printing
-Printing is True
-replacing on Hello world
-replacing on False
-Replaced " for printing: ['Hello world', 'False']
-SubProcess: Formater Completed
-Printing: Hello world
-Printing: False
-Process Print Completed
-Line: 47 succesfully interpreted
-
-Line: 48 is being interpreted
-Process: Printing
-SubProcess: formater
-['"$int_var + $float_var ="', '$int_var+$float_var']
-"$int_var + $float_var =" with var $0
-"$int_var + $float_var =" with var $1
-"$int_var + $float_var =" with var $2
-"$int_var + $float_var =" with var $3
-"$int_var + $float_var =" with var $4
-"$int_var + $float_var =" with var $5
-"$int_var + $float_var =" with var $string_var
-"5 + $float_var =" with var $int_var
-"5 + 5.5 =" with var $float_var
-"5 + 5.5 =" with var $bool_var
-['"5 + 5.5 ="']
-
-$int_var+$float_var with var $0
-$int_var+$float_var with var $1
-$int_var+$float_var with var $2
-$int_var+$float_var with var $3
-$int_var+$float_var with var $4
-$int_var+$float_var with var $5
-$int_var+$float_var with var $string_var
-5+$float_var with var $int_var
-5+5.5 with var $float_var
-5+5.5 with var $bool_var
-['"5 + 5.5 ="', '5+5.5']
-
-Check for printing
-Printing is True
-replacing on "5 + 5.5 ="
-replacing on 5+5.5
-Replaced " for printing: ['5 + 5.5 =', '5+5.5']
-SubProcess: Formater Completed
-Printing: 5 + 5.5 =
-Printing: 5+5.5
-Process Print Completed
-Line: 48 succesfully interpreted
-
-Line: 49 is being interpreted
-Process: Printing
-SubProcess: formater
-['"Your first two flags are: "', '$1', '$2']
-"Your first two flags are: " with var $0
-"Your first two flags are: " with var $1
-"Your first two flags are: " with var $2
-"Your first two flags are: " with var $3
-"Your first two flags are: " with var $4
-"Your first two flags are: " with var $5
-"Your first two flags are: " with var $string_var
-"Your first two flags are: " with var $int_var
-"Your first two flags are: " with var $float_var
-"Your first two flags are: " with var $bool_var
-['"Your first two flags are: "']
-
+['$1', '$2']
 $1 with var $0
 12 with var $1
 12 with var $2
 12 with var $3
 12 with var $4
 12 with var $5
-12 with var $string_var
-12 with var $int_var
-12 with var $float_var
-12 with var $bool_var
-['"Your first two flags are: "', '12']
+['12']
 
 $2 with var $0
 $2 with var $1
@@ -242,89 +34,37 @@ $2 with var $1
 34 with var $3
 34 with var $4
 34 with var $5
-34 with var $string_var
-34 with var $int_var
-34 with var $float_var
-34 with var $bool_var
-['"Your first two flags are: "', '12', '34']
+['12', '34']
 
 Check for printing
 Printing is True
-replacing on "Your first two flags are: "
 replacing on 12
 replacing on 34
-Replaced " for printing: ['Your first two flags are: ', '12', '34']
+Replaced " for printing: ['12', '34']
 SubProcess: Formater Completed
-Printing: Your first two flags are: 
 Printing: 12
 Printing: 34
-Process Print Completed
-Line: 49 succesfully interpreted
+Proccess Print Completed
+Line: 2 succesfully interpreted
 
-Line: 50 is being interpreted
+Line: 3 is being interpreted
 Process: Printing
 SubProcess: formater
-['"All of your flags are:"', '$0']
-"All of your flags are:" with var $0
-"All of your flags are:" with var $1
-"All of your flags are:" with var $2
-"All of your flags are:" with var $3
-"All of your flags are:" with var $4
-"All of your flags are:" with var $5
-"All of your flags are:" with var $string_var
-"All of your flags are:" with var $int_var
-"All of your flags are:" with var $float_var
-"All of your flags are:" with var $bool_var
-['"All of your flags are:"']
-
+['$0']
 ['12', '34', '56', '78', '90'] with var $0
 ['12', '34', '56', '78', '90'] with var $1
 ['12', '34', '56', '78', '90'] with var $2
 ['12', '34', '56', '78', '90'] with var $3
 ['12', '34', '56', '78', '90'] with var $4
 ['12', '34', '56', '78', '90'] with var $5
-['12', '34', '56', '78', '90'] with var $string_var
-['12', '34', '56', '78', '90'] with var $int_var
-['12', '34', '56', '78', '90'] with var $float_var
-['12', '34', '56', '78', '90'] with var $bool_var
-['"All of your flags are:"', "['12', '34', '56', '78', '90']"]
+["['12', '34', '56', '78', '90']"]
 
 Check for printing
 Printing is True
-replacing on "All of your flags are:"
 replacing on ['12', '34', '56', '78', '90']
-Replaced " for printing: ['All of your flags are:', "['12', '34', '56', '78', '90']"]
+Replaced " for printing: ["['12', '34', '56', '78', '90']"]
 SubProcess: Formater Completed
-Printing: All of your flags are:
 Printing: ['12', '34', '56', '78', '90']
-Process Print Completed
-Line: 50 succesfully interpreted
-
-Line: 51 is being interpreted
-Process: Printing
-SubProcess: formater
-['@func[$int_var]']
-@func[$int_var] with var $0
-@func[$int_var] with var $1
-@func[$int_var] with var $2
-@func[$int_var] with var $3
-@func[$int_var] with var $4
-@func[$int_var] with var $5
-@func[$int_var] with var $string_var
-@func[5] with var $int_var
-@func[5] with var $float_var
-@func[5] with var $bool_var
-['@func[5]']
-
-Check for printing
-Printing is True
-replacing on @func[5]
-Replaced " for printing: ['@func[5]']
-SubProcess: Formater Completed
-Printing: @func[5]
-Process Print Completed
-Line: 51 succesfully interpreted
-
-Line: 52 is being interpreted
-Line: 52 succesfully interpreted
+Proccess Print Completed
+Line: 3 succesfully interpreted
 

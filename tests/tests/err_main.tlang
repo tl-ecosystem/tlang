@@ -1,0 +1,6 @@
+@s random
+    p("Hello world!")
+@e random
+
+# Expected:
+# Function main was not found.
