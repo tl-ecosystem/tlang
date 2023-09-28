@@ -1,7 +1,9 @@
 from interpreter.handlers.tools import *
+from interpreter.handlers.config import *
+from interpreter.handlers.logger import *
 
 
-class Variables():
+class Variables(Logger,Config):
 
     def __init__(self):
         self.variables = {'0':None} # {"main" : {'0':None}} 

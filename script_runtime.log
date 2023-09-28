@@ -1,70 +1,88 @@
-File tests/tests/flags.tlang Executed currently running:
+File demo.tlang Executed currently running:
 Proccess: Finding functions
-self.functions = {'main': (0, 0)}
-self.functions = {'main': (0, 0)}
-self.functions = {'main': (0, 0)}
-self.functions = {'main': (0, 3)}
-self.functions = {'main': (0, 3)}
-self.functions = {'main': (0, 3)}
-self.functions = {'main': (0, 3)}
-self.functions = {'main': (0, 3)}
-self.functions = {'main': (0, 3)}
-self.functions = {'main': (0, 3)}
+self.functions = {}
+self.functions = {}
+self.functions = {}
+self.functions = {'func[1]': (3, 0)}
+self.functions = {'func[1]': (3, 0)}
+self.functions = {'func[1]': (3, 0)}
+self.functions = {'func[1]': (3, 0)}
+self.functions = {'func[1]': (3, 0)}
+self.functions = {'func[1]': (3, 0)}
+self.functions = {'func[1]': (3, 0)}
+self.functions = {'func[1]': (3, 0)}
+self.functions = {'func[1]': (3, 0)}
+self.functions = {'func[1]': (3, 0)}
+self.functions = {'func[1]': (3, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 62)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 62)}
 Proccess Function Finder Completed
 
-Proccess: Main Execution
-Line: 1 is being interpreted
-Line: 1 succesfully interpreted
-
-Line: 2 is being interpreted
-Process: Printing
-SubProcess: formater
-['$1', '$2']
-$1 with var $0
-12 with var $1
-12 with var $2
-12 with var $3
-12 with var $4
-12 with var $5
-['12']
-
-$2 with var $0
-$2 with var $1
-34 with var $2
-34 with var $3
-34 with var $4
-34 with var $5
-['12', '34']
-
-Check for printing
-Printing is True
-replacing on 12
-replacing on 34
-Replaced " for printing: ['12', '34']
-SubProcess: Formater Completed
-Printing: 12
-Printing: 34
-Proccess Print Completed
-Line: 2 succesfully interpreted
-
-Line: 3 is being interpreted
-Process: Printing
-SubProcess: formater
-['$0']
-['12', '34', '56', '78', '90'] with var $0
-['12', '34', '56', '78', '90'] with var $1
-['12', '34', '56', '78', '90'] with var $2
-['12', '34', '56', '78', '90'] with var $3
-['12', '34', '56', '78', '90'] with var $4
-['12', '34', '56', '78', '90'] with var $5
-["['12', '34', '56', '78', '90']"]
-
-Check for printing
-Printing is True
-replacing on ['12', '34', '56', '78', '90']
-Replaced " for printing: ["['12', '34', '56', '78', '90']"]
-SubProcess: Formater Completed
-Printing: ['12', '34', '56', '78', '90']
-Proccess Print Completed
-Line: 3 succesfully interpreted
-
+Process: Variable assignement
+Found Annotation of variable
+type -> string
+{'0': ['12', '34', '56', '78', '90'], '1': '12', '2': '34', '3': '56', '4': '78', '5': '90', 'string_var': '"Hello world \\$"'}
+Proccess Variable assignement completed
+Process: Variable assignement
+Found Annotation of variable
+type -> integer
+{'0': ['12', '34', '56', '78', '90'], '1': '12', '2': '34', '3': '56', '4': '78', '5': '90', 'string_var': '"Hello world \\$"', 'int_var': 5}
+Proccess Variable assignement completed
+Process: Variable assignement
+Found Annotation of variable
+type -> float
+{'0': ['12', '34', '56', '78', '90'], '1': '12', '2': '34', '3': '56', '4': '78', '5': '90', 'string_var': '"Hello world \\$"', 'int_var': 5, 'float_var': 5.5}
+Proccess Variable assignement completed
+Process: Variable assignement
+Found Annotation of variable
+type -> boolean
+{'0': ['12', '34', '56', '78', '90'], '1': '12', '2': '34', '3': '56', '4': '78', '5': '90', 'string_var': '"Hello world \\$"', 'int_var': 5, 'float_var': 5.5, 'bool_var': True}
+Proccess Variable assignement completed

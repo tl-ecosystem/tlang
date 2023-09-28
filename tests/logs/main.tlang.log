@@ -1,0 +1,20 @@
+Proccess: Main Execution
+Line: 1 is being interpreted
+Line: 1 succesfully interpreted
+
+Line: 2 is being interpreted
+Process: Printing
+SubProcess: formater
+['"Hello world!"']
+"Hello world!" with var $0
+['"Hello world!"']
+
+Check for printing
+Printing is True
+replacing on "Hello world!"
+Replaced " for printing: ['Hello world!']
+SubProcess: Formater Completed
+Printing: Hello world!
+Proccess Print Completed
+Line: 2 succesfully interpreted
+

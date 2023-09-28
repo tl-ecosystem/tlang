@@ -1,6 +1,8 @@
 from interpreter.handlers.tools import *
+from interpreter.handlers.config import *
+from interpreter.handlers.logger import *
 
-class Functions(): # using the number of the line as the indicator to where to go
+class Functions(Logger,Config): # using the number of the line as the indicator to where to go
     def __init__(self):
         '''
         A table that contains any function that was declared.

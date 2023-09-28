@@ -135,7 +135,7 @@ def append_to_file(line:str|list[str,],except_line:str='', logging: bool = True,
     :exception: if set to True it will also output an exception with the same line that was appended to text
     '''
     log_name = 'script_runtime.log'
-    if file_name != '':
+    if file_name != '' and file_name.endswith('.log'):
         log_name = file_name
 
     if logging:

@@ -1,0 +1,56 @@
+Proccess: Main Execution
+Line: 1 is being interpreted
+Line: 1 succesfully interpreted
+
+Line: 2 is being interpreted
+Process: Printing
+SubProcess: formater
+['$1', '$2']
+$1 with var $0
+12 with var $1
+12 with var $2
+12 with var $3
+12 with var $4
+12 with var $5
+['12']
+
+$2 with var $0
+$2 with var $1
+34 with var $2
+34 with var $3
+34 with var $4
+34 with var $5
+['12', '34']
+
+Check for printing
+Printing is True
+replacing on 12
+replacing on 34
+Replaced " for printing: ['12', '34']
+SubProcess: Formater Completed
+Printing: 12
+Printing: 34
+Proccess Print Completed
+Line: 2 succesfully interpreted
+
+Line: 3 is being interpreted
+Process: Printing
+SubProcess: formater
+['$0']
+['12', '34', '56', '78', '90'] with var $0
+['12', '34', '56', '78', '90'] with var $1
+['12', '34', '56', '78', '90'] with var $2
+['12', '34', '56', '78', '90'] with var $3
+['12', '34', '56', '78', '90'] with var $4
+['12', '34', '56', '78', '90'] with var $5
+["['12', '34', '56', '78', '90']"]
+
+Check for printing
+Printing is True
+replacing on ['12', '34', '56', '78', '90']
+Replaced " for printing: ["['12', '34', '56', '78', '90']"]
+SubProcess: Formater Completed
+Printing: ['12', '34', '56', '78', '90']
+Proccess Print Completed
+Line: 3 succesfully interpreted
+

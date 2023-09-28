@@ -75,7 +75,8 @@ class Tester:
             argv += [i]
 
         try:
-            got = run.execute(True, argv, inputt)
+            run.execute(True, argv, inputt)
+            got = run.test_list 
         except Exception as error:
             got = [str(error)]
         return got
