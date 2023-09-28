@@ -155,8 +155,8 @@ Syntax:
 
 #### While loop use:
 
-wf(state)s -> will loop only if the state is true
-wf()e -> end of while loop
+`wf(state)s` -> will loop only if the state is true <br>
+`wf()e` -> end of while loop
 
 #### For loop use:
 
