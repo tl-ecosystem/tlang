@@ -11,8 +11,7 @@
 8. [Math operations support](main.md#math-operations)
 9. [Built-in functions](main.md#built-in-functions)
 10. [Debugging PyTLang code](main.md#debugging-pytlang-code)
-  
-- [Experimental  features](main.md#expiremental-features)
+11. [Experimental  features](main.md#expiremental-features)
 
 # Documentation of PyTLang
 
