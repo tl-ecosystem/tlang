@@ -26,7 +26,7 @@ You can also put `-log` in the end to get a full traceback:
 
 `--docs` : to get the full documentation of the pseudo-programming language
 
-`--help` : to get this page
+`--help` : to get help on the flags of the interpreter
 
 `--testing` : unit tests to ensure it interprets correctly
 
