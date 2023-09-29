@@ -30,6 +30,11 @@ You can also put `-log` in the end to get a full traceback:
 
 `--testing` : unit tests to ensure it interprets correctly
 
+
+## Documentation:
+
+See the documentation of PyTLang [here](docs/main.md).
+
 ## Requirements
 
 1. Python 3.11.4 and later
