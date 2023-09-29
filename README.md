@@ -52,7 +52,7 @@ You can also put `-log` in the end to get a full traceback:
 
 
 - ### Comments
-Anything that isn't a scpecial keychar/keyword is considered a comment
+Anything that isn't a special keychar/keyword is considered a comment
 
 - ### Explicitness in syntax
 
@@ -172,7 +172,7 @@ Syntax:
 
 - ### Math operations
 
-TLang supports
+PyTLang supports
 
 1. Addition
 2. Subtraction
@@ -187,7 +187,7 @@ TLang supports
 2. random -> rand(start, finish) None will be auto to 0 - 100
 3. type -> type($var) return the type of the variable
 
-- ### Debugging TLang Code
+- ### Debugging PyTLang Code
 
 After you type the file you can also type -log, when you run the program a new file will be created in the working directory with every step that the language takes to run.
 
