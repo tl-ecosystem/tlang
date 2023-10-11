@@ -44,3 +44,9 @@ See the documentation of PyTLang [here](docs/main.md).
 #### WARNING: Code poorly optimized, and written like spaghetti. The reason is because this project was supposed to be small, but accidently made it bigger than envisioned, which led to me writing poor base code in short time. Leading to a mess in the long time. Please understand if I fix any issues considering optimazation or readability is going to happen ONLY because I need the language for a particular use for another project.
 
 You can fork the code and then add your changes, I will later review and merge if deemed necessary.
+
+Ideas for contribution:
+- Optimization of code.
+- Adding more features.
+- Make the documentation more readable.
+- Fixing spelling issues.
