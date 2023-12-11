@@ -2,6 +2,8 @@
 
 - [ ] Documentation: ~
 
+- [ ] Change the syntax
+
 - Variables: 
   - [x] Int
   - [x] Float
