@@ -1,6 +1,11 @@
-# PyTLang - Experimental Branch, WIP
+# PyTlang
 
 WIP : [TODO](docs/todo.md)
+
+A programming interpreted language created using Python. A fun little project.
+
+To run a script written in tlang you need to type in the terminal:
+
 
 An interpreted programming language created using Python. A fun little project (do not copy, I made this project without reading how an actual Interpreter works, so everything is created from scratch).
 
@@ -36,7 +41,6 @@ You can also put `-log` in the end to get a full traceback:
 See the documentation of PyTLang [here](docs/main.md).
 
 ## Requirements
-
 1. Python 3.11.4 and later
 
 ## Contribution
