@@ -1,0 +1,88 @@
+File demo.tlang Executed currently running:
+Proccess: Finding functions
+self.functions = {}
+self.functions = {}
+self.functions = {}
+self.functions = {'func[1]': (3, 0)}
+self.functions = {'func[1]': (3, 0)}
+self.functions = {'func[1]': (3, 0)}
+self.functions = {'func[1]': (3, 0)}
+self.functions = {'func[1]': (3, 0)}
+self.functions = {'func[1]': (3, 0)}
+self.functions = {'func[1]': (3, 0)}
+self.functions = {'func[1]': (3, 0)}
+self.functions = {'func[1]': (3, 0)}
+self.functions = {'func[1]': (3, 0)}
+self.functions = {'func[1]': (3, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 0)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 62)}
+self.functions = {'func[1]': (3, 0), 'square_root[1]': (14, 0), 'factorial[1]': (27, 0), 'add[2]': (36, 0), 'main': (42, 62)}
+Proccess Function Finder Completed
+
+Process: Variable assignement
+Found Annotation of variable
+type -> string
+{'0': ['12', '34', '56', '78', '90'], '1': '12', '2': '34', '3': '56', '4': '78', '5': '90', 'string_var': '"Hello world \\$"'}
+Proccess Variable assignement completed
+Process: Variable assignement
+Found Annotation of variable
+type -> integer
+{'0': ['12', '34', '56', '78', '90'], '1': '12', '2': '34', '3': '56', '4': '78', '5': '90', 'string_var': '"Hello world \\$"', 'int_var': 5}
+Proccess Variable assignement completed
+Process: Variable assignement
+Found Annotation of variable
+type -> float
+{'0': ['12', '34', '56', '78', '90'], '1': '12', '2': '34', '3': '56', '4': '78', '5': '90', 'string_var': '"Hello world \\$"', 'int_var': 5, 'float_var': 5.5}
+Proccess Variable assignement completed
+Process: Variable assignement
+Found Annotation of variable
+type -> boolean
+{'0': ['12', '34', '56', '78', '90'], '1': '12', '2': '34', '3': '56', '4': '78', '5': '90', 'string_var': '"Hello world \\$"', 'int_var': 5, 'float_var': 5.5, 'bool_var': True}
+Proccess Variable assignement completed

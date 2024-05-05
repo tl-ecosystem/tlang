@@ -1,0 +1,47 @@
+// old syntax
+
+@s main
+    ...
+
+@e main
+
+// new syntax
+
+@main(arg1, arg2) <- int
+{
+
+    $var <- int = 5;
+
+    int -> $var = 5;
+    
+    char -> $var_char = 'h';
+
+    string -> $var_string = "hello world";
+
+    str#arr -> $var_char_arr = "brothah"; // stored as a list: ['b','r','o','t','h','a','h']
+
+    print("Hello World");
+    print("Hello World");
+    println("Brothah","space Brothah").sep(" - ");
+
+    list[any] -> $var_list = [...]; // you can type ... inside the square brackets to indicate that its empty ( [] = [...] )
+    list[int] -> $var_list = [...];
+    list[int & float] -> $var_list = [...];
+    list[int & float & string] -> $var_list = [...];
+    list[int | float | string] -> $var_list = [...];
+    
+}
+
+@random( min <- int, max <- int ) <- int
+{
+
+
+
+}
+
+@hello( min <- int, max <- int ) <- void
+{
+
+
+
+}

@@ -1,0 +1,46 @@
+Proccess: Main Execution
+Line: 1 is being interpreted
+Line: 1 succesfully interpreted
+
+Line: 2 is being interpreted
+Line: 2 succesfully interpreted
+
+Line: 3 is being interpreted
+Line: 3 succesfully interpreted
+
+Line: 4 is being interpreted
+Process: Printing
+SubProcess: formater
+['"var1 = $var1"']
+"var1 = $var1" with var $0
+"var1 = 1" with var $var1
+"var1 = 1" with var $var2
+['"var1 = 1"']
+
+Check for printing
+Printing is True
+replacing on "var1 = 1"
+Replaced " for printing: ['var1 = 1']
+SubProcess: Formater Completed
+Printing: var1 = 1
+Proccess Print Completed
+Line: 4 succesfully interpreted
+
+Line: 5 is being interpreted
+Process: Printing
+SubProcess: formater
+['"var2 = $var2"']
+"var2 = $var2" with var $0
+"var2 = $var2" with var $var1
+"var2 = 2" with var $var2
+['"var2 = 2"']
+
+Check for printing
+Printing is True
+replacing on "var2 = 2"
+Replaced " for printing: ['var2 = 2']
+SubProcess: Formater Completed
+Printing: var2 = 2
+Proccess Print Completed
+Line: 5 succesfully interpreted
+

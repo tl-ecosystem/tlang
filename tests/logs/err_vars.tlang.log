@@ -1,0 +1,20 @@
+Proccess: Main Execution
+Line: 1 is being interpreted
+Line: 1 succesfully interpreted
+
+Line: 2 is being interpreted
+Process: Printing
+SubProcess: formater
+['$var']
+$var with var $0
+['$var']
+
+Check for printing
+Printing is True
+replacing on $var
+Replaced " for printing: ['$var']
+SubProcess: Formater Completed
+Printing: $var
+Proccess Print Completed
+Line: 2 succesfully interpreted
+

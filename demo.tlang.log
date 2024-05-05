@@ -1,0 +1,267 @@
+Proccess: Main Execution
+Line: 43 is being interpreted
+Line: 43 succesfully interpreted
+
+Line: 44 is being interpreted
+Line: 45 is being interpreted
+Process: Printing
+SubProcess: formater
+['$bruh)#<-notpermitted']
+$bruh)#<-notpermitted with var $0
+$bruh)#<-notpermitted with var $1
+$bruh)#<-notpermitted with var $2
+$bruh)#<-notpermitted with var $3
+$bruh)#<-notpermitted with var $4
+$bruh)#<-notpermitted with var $5
+['$bruh)#<-notpermitted']
+
+Check for printing
+Printing is True
+replacing on $bruh)#<-notpermitted
+Replaced " for printing: ['$bruh)#<-notpermitted']
+SubProcess: Formater Completed
+Printing: $bruh)#<-notpermitted
+Proccess Print Completed
+Line: 45 succesfully interpreted
+
+Line: 46 is being interpreted
+Line: 47 is being interpreted
+Syntax error, could not interpret line 47 -> "dfjghdjfhgdkijfhgd"Line: 47 succesfully interpreted
+
+Line: 48 is being interpreted
+Line: 49 is being interpreted
+Line: 49 succesfully interpreted
+
+Line: 50 is being interpreted
+Line: 51 is being interpreted
+Line: 51 succesfully interpreted
+
+Line: 52 is being interpreted
+Line: 52 succesfully interpreted
+
+Line: 53 is being interpreted
+Line: 54 is being interpreted
+Line: 54 succesfully interpreted
+
+Line: 55 is being interpreted
+Line: 56 is being interpreted
+Process: Printing
+SubProcess: formater
+['$string_var', '$bool_var']
+$string_var with var $0
+$string_var with var $1
+$string_var with var $2
+$string_var with var $3
+$string_var with var $4
+$string_var with var $5
+"Hello world \$" with var $string_var
+"Hello world \$" with var $int_var
+"Hello world \$" with var $float_var
+"Hello world \$" with var $bool_var
+['"Hello world \\$"']
+
+$bool_var with var $0
+$bool_var with var $1
+$bool_var with var $2
+$bool_var with var $3
+$bool_var with var $4
+$bool_var with var $5
+$bool_var with var $string_var
+$bool_var with var $int_var
+$bool_var with var $float_var
+True with var $bool_var
+['"Hello world \\$"', 'True']
+
+Check for printing
+Printing is True
+replacing on "Hello world \$"
+replacing on True
+Replaced " for printing: ['Hello world \\$', 'True']
+SubProcess: Formater Completed
+Printing: Hello world \$
+Printing: True
+Proccess Print Completed
+Line: 56 succesfully interpreted
+
+Line: 57 is being interpreted
+Process: Printing
+SubProcess: formater
+['"$int_var + $float_var ="', '$int_var+$float_var']
+"$int_var + $float_var =" with var $0
+"$int_var + $float_var =" with var $1
+"$int_var + $float_var =" with var $2
+"$int_var + $float_var =" with var $3
+"$int_var + $float_var =" with var $4
+"$int_var + $float_var =" with var $5
+"$int_var + $float_var =" with var $string_var
+"5 + $float_var =" with var $int_var
+"5 + 5.5 =" with var $float_var
+"5 + 5.5 =" with var $bool_var
+['"5 + 5.5 ="']
+
+$int_var+$float_var with var $0
+$int_var+$float_var with var $1
+$int_var+$float_var with var $2
+$int_var+$float_var with var $3
+$int_var+$float_var with var $4
+$int_var+$float_var with var $5
+$int_var+$float_var with var $string_var
+5+$float_var with var $int_var
+5+5.5 with var $float_var
+5+5.5 with var $bool_var
+['"5 + 5.5 ="', '5+5.5']
+
+Check for printing
+Printing is True
+replacing on "5 + 5.5 ="
+replacing on 5+5.5
+Replaced " for printing: ['5 + 5.5 =', '5+5.5']
+SubProcess: Formater Completed
+Printing: 5 + 5.5 =
+Printing: 5+5.5
+Proccess Print Completed
+Line: 57 succesfully interpreted
+
+Line: 58 is being interpreted
+Process: Printing
+SubProcess: formater
+['"Your first two flags are: "', '$1', '$2']
+"Your first two flags are: " with var $0
+"Your first two flags are: " with var $1
+"Your first two flags are: " with var $2
+"Your first two flags are: " with var $3
+"Your first two flags are: " with var $4
+"Your first two flags are: " with var $5
+"Your first two flags are: " with var $string_var
+"Your first two flags are: " with var $int_var
+"Your first two flags are: " with var $float_var
+"Your first two flags are: " with var $bool_var
+['"Your first two flags are: "']
+
+$1 with var $0
+12 with var $1
+12 with var $2
+12 with var $3
+12 with var $4
+12 with var $5
+12 with var $string_var
+12 with var $int_var
+12 with var $float_var
+12 with var $bool_var
+['"Your first two flags are: "', '12']
+
+$2 with var $0
+$2 with var $1
+34 with var $2
+34 with var $3
+34 with var $4
+34 with var $5
+34 with var $string_var
+34 with var $int_var
+34 with var $float_var
+34 with var $bool_var
+['"Your first two flags are: "', '12', '34']
+
+Check for printing
+Printing is True
+replacing on "Your first two flags are: "
+replacing on 12
+replacing on 34
+Replaced " for printing: ['Your first two flags are: ', '12', '34']
+SubProcess: Formater Completed
+Printing: Your first two flags are: 
+Printing: 12
+Printing: 34
+Proccess Print Completed
+Line: 58 succesfully interpreted
+
+Line: 59 is being interpreted
+Process: Printing
+SubProcess: formater
+['"All of your flags are:"', '$0']
+"All of your flags are:" with var $0
+"All of your flags are:" with var $1
+"All of your flags are:" with var $2
+"All of your flags are:" with var $3
+"All of your flags are:" with var $4
+"All of your flags are:" with var $5
+"All of your flags are:" with var $string_var
+"All of your flags are:" with var $int_var
+"All of your flags are:" with var $float_var
+"All of your flags are:" with var $bool_var
+['"All of your flags are:"']
+
+['12', '34', '56', '78', '90'] with var $0
+['12', '34', '56', '78', '90'] with var $1
+['12', '34', '56', '78', '90'] with var $2
+['12', '34', '56', '78', '90'] with var $3
+['12', '34', '56', '78', '90'] with var $4
+['12', '34', '56', '78', '90'] with var $5
+['12', '34', '56', '78', '90'] with var $string_var
+['12', '34', '56', '78', '90'] with var $int_var
+['12', '34', '56', '78', '90'] with var $float_var
+['12', '34', '56', '78', '90'] with var $bool_var
+['"All of your flags are:"', "['12', '34', '56', '78', '90']"]
+
+Check for printing
+Printing is True
+replacing on "All of your flags are:"
+replacing on ['12', '34', '56', '78', '90']
+Replaced " for printing: ['All of your flags are:', "['12', '34', '56', '78', '90']"]
+SubProcess: Formater Completed
+Printing: All of your flags are:
+Printing: ['12', '34', '56', '78', '90']
+Proccess Print Completed
+Line: 59 succesfully interpreted
+
+Line: 60 is being interpreted
+Process: Printing
+SubProcess: formater
+['"testing whitespace character against variable, \\$hello"']
+"testing whitespace character against variable, \$hello" with var $0
+"testing whitespace character against variable, \$hello" with var $1
+"testing whitespace character against variable, \$hello" with var $2
+"testing whitespace character against variable, \$hello" with var $3
+"testing whitespace character against variable, \$hello" with var $4
+"testing whitespace character against variable, \$hello" with var $5
+"testing whitespace character against variable, \$hello" with var $string_var
+"testing whitespace character against variable, \$hello" with var $int_var
+"testing whitespace character against variable, \$hello" with var $float_var
+"testing whitespace character against variable, \$hello" with var $bool_var
+['"testing whitespace character against variable, \\$hello"']
+
+Check for printing
+Printing is True
+replacing on "testing whitespace character against variable, \$hello"
+Replaced " for printing: ['testing whitespace character against variable, \\$hello']
+SubProcess: Formater Completed
+Printing: testing whitespace character against variable, \$hello
+Proccess Print Completed
+Line: 60 succesfully interpreted
+
+Line: 61 is being interpreted
+Process: Printing
+SubProcess: formater
+['@func[$int_var]']
+@func[$int_var] with var $0
+@func[$int_var] with var $1
+@func[$int_var] with var $2
+@func[$int_var] with var $3
+@func[$int_var] with var $4
+@func[$int_var] with var $5
+@func[$int_var] with var $string_var
+@func[5] with var $int_var
+@func[5] with var $float_var
+@func[5] with var $bool_var
+['@func[5]']
+
+Check for printing
+Printing is True
+replacing on @func[5]
+Replaced " for printing: ['@func[5]']
+SubProcess: Formater Completed
+Printing: @func[5]
+Proccess Print Completed
+Line: 61 succesfully interpreted
+
+Line: 62 is being interpreted

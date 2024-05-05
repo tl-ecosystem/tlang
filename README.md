@@ -1,33 +1,56 @@
 # PyTlang
 
+WIP : [TODO](docs/todo.md)
+
 A programming interpreted language created using Python. A fun little project.
 
 To run a script written in tlang you need to type in the terminal:
 
-    --> python tlang1.py name_of_file.tlang
+
+An interpreted programming language created using Python. A fun little project (do not copy, I made this project without reading how an actual Interpreter works, so everything is created from scratch).
+
+Create a file ending in .tlang
+
+Write the following:
+
+    @s main
+        p("Hello world!")
+    @e main
+
+To run a script written in PyTlang you need to type in the terminal:
+
+    --> python pytlang.py name_of_file.tlang
     
-You can also put -log in the end to get a full traceback: WARNING: -log is not currently supported
+You can also put `-log` in the end to get a full traceback:
 
-    --> python tlang1.py name_of_file.tlang -log
+    --> python pytlang.py name_of_file.tlang -log
     
---version : to get the version of the interpreter
+### Other flags include: 
 
---docs : to get the full documentation of the pseudo-programming language
+`--version` : to get the version of the interpreter
 
---help : to get the this page
+`--docs` : to get the full documentation of the pseudo-programming language
 
-## DOCUMENTATION
+`--help` : to get help on the flags of the interpreter
 
-Anything that isn't a special keychar/keyword is considered a comment
+`--testing` : unit tests to ensure it interprets correctly
 
-p() is for printing anything put inside will be printed
 
-    p(Hello World)
+## Documentation:
 
-## CONTRIBUTION:
+See the documentation of PyTLang [here](docs/main.md).
 
-WARNING: Code poorly optimized, and written like spaghetti. Please understand if I fix any issues considering optimazation or readability is going to happen ONLY because I need the language for a particular use for another project.
+## Requirements
+1. Python 3.11.4 and later
 
-You may fork this project and add or optimise certain aspects of the code.
+## Contribution
 
-If you see any grammatical/syntax error you can contribute.
+> ### ⚠️ WARNING: Code poorly optimized, and written like spaghetti. The reason is because this project was supposed to be small, but accidently made it bigger than envisioned, which led to me writing poor base code in short time. Leading to a mess in the long time. Please understand if I fix any issues considering optimazation or readability is going to happen ONLY because I need the language for a particular use for another project.
+
+You can fork the code and then add your changes, I will later review and merge if deemed necessary.
+
+Ideas for contribution:
+- Optimization of code.
+- Adding more features.
+- Make the documentation more readable.
+- Fixing spelling issues.

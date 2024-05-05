@@ -1,12 +1,64 @@
-Anything that doesn't get recognised as a special character will be classed as a comment
+# Anything that doesn't get recognised as a special character will be classed as a comment
 
-printing stuff, it's explicit that you type the print in the start of the line, and 
-p(Hello world)
-$var_name1 = 5
-$var_name2 = 4
-p($var_name1 + $var_name2)
 
-$var_name = John Doe = WeirdGamerTag
-$bool_name = True
+@s func [1]
 
-p($var_name)
+    $var_local <- int = 5
+    $var_local <- int = 6
+
+    r($var_local + $var_local - $1)
+    (always returns in string, if numeric will return numeric)
+    
+@e func
+
+
+@s square_root [1]
+    i($1 > 0)s
+        r($1**0.5)
+    # ie
+    ei($1 == 0)s
+        r(0)
+    eie
+    es
+        r("Number smaller than one is not permitted")
+    ee
+@e square_root
+
+
+@s factorial  [1]
+    $temp = 1
+    wf($var = 1, $var < $1)s
+        $temp = $temp * $var
+    wf($var++)e  # could also be $var += 5 
+    r($temp)
+@e factorial
+
+
+@s add [2]
+    r($1 + $2)
+@e add
+
+
+# start
+@s main
+
+    p($bruh) # <- not permitted
+
+    dfjghdjfhgdkijfhgd
+    
+    $string_var <- string = "Hello world \$"
+
+    $int_var <- integer = 5
+    $float_var <- float = 5.5
+
+    $bool_var <- boolean = False
+
+    p($string_var,  $bool_var)
+    p("$int_var + $float_var =", $int_var + $float_var)
+    p("Your first two flags are: ", $1, $2)
+    p("All of your flags are:", $0)
+    p("testing whitespace character against variable, \$hello")
+    p(@func[$int_var])
+
+@e main
+# end
