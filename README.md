@@ -1,8 +1,8 @@
-# PyTlang
+# TLang
 
 WIP : [TODO](docs/todo.md)
 
-A programming interpreted language created using Python. A fun little project.
+A programming interpreted language created using Python (pronounced: tlank). A fun little project.
 
 To run a script written in tlang you need to type in the terminal:
 
